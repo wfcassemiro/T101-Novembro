@@ -124,6 +124,14 @@ $available_lectures = count($system_lectures) - count($mapped_lecture_ids);
                 <div class="column-title">
                     <i class="fas fa-store"></i> Palestras Hotmart
                 </div>
+                <div class="filter-buttons">
+                    <button class="btn btn-sm btn-outline-primary btn-filter" id="filterHotmart">
+                        <i class="fas fa-filter"></i> Mostrar apenas disponíveis
+                    </button>
+                    <button class="btn btn-sm btn-outline-secondary btn-filter" id="showAllHotmart" style="display:none;">
+                        <i class="fas fa-list"></i> Mostrar todas
+                    </button>
+                </div>
                 <input type="text" class="form-control search-box" id="searchHotmart" placeholder="🔍 Buscar palestra Hotmart...">
                 <div id="hotmart-list">
                     <?php foreach ($hotmart_lectures as $index => $lecture): 
