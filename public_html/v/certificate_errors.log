@@ -1,0 +1,118 @@
+[2025-11-03 23:27:14] [GENERATE_CERT] Script generate_certificate.php iniciado
+[2025-11-03 23:27:14] [GENERATE_CERT] Dados recebidos - Lecture: 41f26228-4f94-4c7f-b9f0-7906ea80bb26, User: debug-user
+[2025-11-03 23:27:14] [GENERATE_CERT] Iniciando validações de segurança anti-fraude
+[2025-11-03 23:27:14] [GENERATE_CERT] Progresso no DB: 3777s
+[2025-11-03 23:27:14] [GENERATE_CERT] MODO TESTE: Duração total: 2520s, Requerido: 120s (fixo em 2 min)
+[2025-11-03 23:27:14] [GENERATE_CERT] TESTE - Security data - Sequential: 600s, Segments: 3, Suspicious: 0
+[2025-11-03 23:27:14] [GENERATE_CERT] ALERTA TESTE: Diferença temporal grande mas permitindo - DB: 3777s, Cliente: 600s, Diferença: 3177s
+[2025-11-03 23:27:14] [GENERATE_CERT] INFO: Certificado já existe - ID: eae1a3de-53fe-4497-90ac-419951e15674
+[2025-11-03 20:27:14] [DOWNLOAD] DEBUG: Script download_certificate_files.php iniciado.
+[2025-11-03 20:27:14] [DOWNLOAD] DEBUG: ID do certificado recebido: eae1a3de-53fe-4497-90ac-419951e15674, formato solicitado: png
+[2025-11-03 20:27:14] [DOWNLOAD] DEBUG: Dados do certificado encontrados no banco de dados.
+[2025-11-03 20:27:14] [DOWNLOAD] DEBUG: Arquivo PNG encontrado: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_eae1a3de-53fe-4497-90ac-419951e15674.png
+[2025-11-03 20:27:14] [DOWNLOAD] DEBUG: Preparando download final: Certificado_William_Cassemiro_2025-11-03.png (Tipo: image/png) - Arquivo: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_eae1a3de-53fe-4497-90ac-419951e15674.png
+[2025-11-03 20:27:14] [DOWNLOAD] INFO: Arquivo Certificado_William_Cassemiro_2025-11-03.png enviado para download com sucesso.
+[2025-11-03 20:31:59] [DOWNLOAD] DEBUG: Script download_certificate_files.php iniciado.
+[2025-11-03 20:31:59] [DOWNLOAD] ERRO: ID do certificado não fornecido.
+[2025-11-03 20:33:27] [DOWNLOAD] DEBUG: Script download_certificate_files.php iniciado.
+[2025-11-03 20:33:27] [DOWNLOAD] DEBUG: ID do certificado recebido: fc90657a-3b98-4929-88a5-3507bc31014f, formato solicitado: png
+[2025-11-03 20:33:27] [DOWNLOAD] DEBUG: Dados do certificado encontrados no banco de dados.
+[2025-11-03 20:33:27] [DOWNLOAD] DEBUG: Arquivo PNG encontrado: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_fc90657a-3b98-4929-88a5-3507bc31014f.png
+[2025-11-03 20:33:27] [DOWNLOAD] DEBUG: Preparando download final: Certificado_William_Cassemiro_2025-11-03.png (Tipo: image/png) - Arquivo: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_fc90657a-3b98-4929-88a5-3507bc31014f.png
+[2025-11-03 20:33:27] [DOWNLOAD] INFO: Arquivo Certificado_William_Cassemiro_2025-11-03.png enviado para download com sucesso.
+[2025-11-03 23:33:54] [VIEW] DEBUG: Script view_certificate_files.php iniciado.
+[2025-11-03 23:33:54] [VIEW] DEBUG: ID do certificado recebido: 7da3b5af-add7-4fb4-9a46-2d26658c2a4f
+[2025-11-03 23:33:54] [VIEW] DEBUG: Dados do certificado encontrados no banco de dados para ID: 7da3b5af-add7-4fb4-9a46-2d26658c2a4f
+[2025-11-03 23:33:54] [VIEW] DEBUG: Arquivo PNG encontrado: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_7da3b5af-add7-4fb4-9a46-2d26658c2a4f.png
+[2025-11-03 23:33:54] [VIEW] DEBUG: Script view_certificate_files.php iniciado.
+[2025-11-03 23:33:54] [VIEW] DEBUG: ID do certificado recebido: 7da3b5af-add7-4fb4-9a46-2d26658c2a4f
+[2025-11-03 23:33:54] [VIEW] DEBUG: Dados do certificado encontrados no banco de dados para ID: 7da3b5af-add7-4fb4-9a46-2d26658c2a4f
+[2025-11-03 23:33:54] [VIEW] DEBUG: Arquivo PNG encontrado: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_7da3b5af-add7-4fb4-9a46-2d26658c2a4f.png
+[2025-11-03 23:33:54] [VIEW] DEBUG: Mostrando imagem diretamente: Certificado_WilliamCassemiro.png
+[2025-11-03 23:33:54] [VIEW] INFO: Imagem PNG enviada para visualização direta.
+[2025-11-03 23:40:04] [VIEW] DEBUG: Script view_certificate_files.php iniciado.
+[2025-11-03 23:40:04] [VIEW] DEBUG: ID do certificado recebido: eae1a3de-53fe-4497-90ac-419951e15674
+[2025-11-03 23:40:04] [VIEW] DEBUG: Dados do certificado encontrados no banco de dados para ID: eae1a3de-53fe-4497-90ac-419951e15674
+[2025-11-03 23:40:04] [VIEW] DEBUG: Arquivo PNG encontrado: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_eae1a3de-53fe-4497-90ac-419951e15674.png
+[2025-11-03 23:40:04] [VIEW] DEBUG: Script view_certificate_files.php iniciado.
+[2025-11-03 23:40:04] [VIEW] DEBUG: ID do certificado recebido: eae1a3de-53fe-4497-90ac-419951e15674
+[2025-11-03 23:40:04] [VIEW] DEBUG: Dados do certificado encontrados no banco de dados para ID: eae1a3de-53fe-4497-90ac-419951e15674
+[2025-11-03 23:40:04] [VIEW] DEBUG: Arquivo PNG encontrado: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_eae1a3de-53fe-4497-90ac-419951e15674.png
+[2025-11-03 23:40:04] [VIEW] DEBUG: Mostrando imagem diretamente: Certificado_WilliamCassemiro.png
+[2025-11-03 23:40:04] [VIEW] INFO: Imagem PNG enviada para visualização direta.
+[2025-11-03 20:40:14] [DOWNLOAD] DEBUG: Script download_certificate_files.php iniciado.
+[2025-11-03 20:40:14] [DOWNLOAD] DEBUG: ID do certificado recebido: eae1a3de-53fe-4497-90ac-419951e15674, formato solicitado: pdf
+[2025-11-03 20:40:14] [DOWNLOAD] DEBUG: Dados do certificado encontrados no banco de dados.
+[2025-11-03 20:40:14] [DOWNLOAD] DEBUG: Arquivo PNG encontrado: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_eae1a3de-53fe-4497-90ac-419951e15674.png
+[2025-11-03 20:40:14] [DOWNLOAD] DEBUG: Iniciando conversão PNG para PDF: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_eae1a3de-53fe-4497-90ac-419951e15674.png -> /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_eae1a3de-53fe-4497-90ac-419951e15674_converted.pdf
+[2025-11-03 20:40:14] [DOWNLOAD] SUCESSO: PDF criado com TCPDF: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_eae1a3de-53fe-4497-90ac-419951e15674_converted.pdf
+[2025-11-03 20:40:14] [DOWNLOAD] DEBUG: PNG convertido para PDF com sucesso: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_eae1a3de-53fe-4497-90ac-419951e15674_converted.pdf
+[2025-11-03 20:40:14] [DOWNLOAD] DEBUG: Preparando download final: Certificado_William_Cassemiro_2025-11-03.pdf (Tipo: application/pdf) - Arquivo: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_eae1a3de-53fe-4497-90ac-419951e15674_converted.pdf
+[2025-11-03 20:40:14] [DOWNLOAD] INFO: Arquivo Certificado_William_Cassemiro_2025-11-03.pdf enviado para download com sucesso.
+[2025-11-03 23:41:48] [VIEW] DEBUG: Script view_certificate_files.php iniciado.
+[2025-11-03 23:41:48] [VIEW] DEBUG: ID do certificado recebido: 0bee714c-73c9-4652-8f71-848da012f221
+[2025-11-03 23:41:48] [VIEW] DEBUG: Dados do certificado encontrados no banco de dados para ID: 0bee714c-73c9-4652-8f71-848da012f221
+[2025-11-03 23:41:48] [VIEW] DEBUG: Arquivo PNG encontrado: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_0bee714c-73c9-4652-8f71-848da012f221.png
+[2025-11-03 23:41:48] [VIEW] DEBUG: Script view_certificate_files.php iniciado.
+[2025-11-03 23:41:48] [VIEW] DEBUG: ID do certificado recebido: 0bee714c-73c9-4652-8f71-848da012f221
+[2025-11-03 23:41:48] [VIEW] DEBUG: Dados do certificado encontrados no banco de dados para ID: 0bee714c-73c9-4652-8f71-848da012f221
+[2025-11-03 23:41:48] [VIEW] DEBUG: Arquivo PNG encontrado: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_0bee714c-73c9-4652-8f71-848da012f221.png
+[2025-11-03 23:41:48] [VIEW] DEBUG: Mostrando imagem diretamente: Certificado_WilliamCassemiro.png
+[2025-11-03 23:41:48] [VIEW] INFO: Imagem PNG enviada para visualização direta.
+[2025-11-03 23:43:07] [VIEW] DEBUG: Script view_certificate_files.php iniciado.
+[2025-11-03 23:43:07] [VIEW] DEBUG: ID do certificado recebido: cert_0d3a0eb273424d9a
+[2025-11-03 23:43:07] [VIEW] DEBUG: Dados do certificado encontrados no banco de dados para ID: cert_0d3a0eb273424d9a
+[2025-11-03 23:43:07] [VIEW] DEBUG: Arquivo PNG encontrado: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_cert_0d3a0eb273424d9a.png
+[2025-11-03 23:43:07] [VIEW] DEBUG: Script view_certificate_files.php iniciado.
+[2025-11-03 23:43:07] [VIEW] DEBUG: ID do certificado recebido: cert_0d3a0eb273424d9a
+[2025-11-03 23:43:07] [VIEW] DEBUG: Dados do certificado encontrados no banco de dados para ID: cert_0d3a0eb273424d9a
+[2025-11-03 23:43:07] [VIEW] DEBUG: Arquivo PNG encontrado: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_cert_0d3a0eb273424d9a.png
+[2025-11-03 23:43:07] [VIEW] DEBUG: Mostrando imagem diretamente: Certificado_ValIvonica.png
+[2025-11-03 23:43:07] [VIEW] INFO: Imagem PNG enviada para visualização direta.
+[2025-11-03 23:46:18] [VIEW] DEBUG: Script view_certificate_files.php iniciado.
+[2025-11-03 23:46:18] [VIEW] DEBUG: ID do certificado recebido: cert_179b7062e4c18cf0
+[2025-11-03 23:46:18] [VIEW] DEBUG: Dados do certificado encontrados no banco de dados para ID: cert_179b7062e4c18cf0
+[2025-11-03 23:46:18] [VIEW] DEBUG: Arquivo PNG encontrado: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_cert_179b7062e4c18cf0.png
+[2025-11-03 23:46:18] [VIEW] DEBUG: Script view_certificate_files.php iniciado.
+[2025-11-03 23:46:18] [VIEW] DEBUG: ID do certificado recebido: cert_179b7062e4c18cf0
+[2025-11-03 23:46:18] [VIEW] DEBUG: Dados do certificado encontrados no banco de dados para ID: cert_179b7062e4c18cf0
+[2025-11-03 23:46:18] [VIEW] DEBUG: Arquivo PNG encontrado: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_cert_179b7062e4c18cf0.png
+[2025-11-03 23:46:18] [VIEW] DEBUG: Mostrando imagem diretamente: Certificado_ValIvonica.png
+[2025-11-03 23:46:18] [VIEW] INFO: Imagem PNG enviada para visualização direta.
+[2025-11-03 23:46:46] [VIEW] DEBUG: Script view_certificate_files.php iniciado.
+[2025-11-03 23:46:46] [VIEW] DEBUG: ID do certificado recebido: 7da3b5af-add7-4fb4-9a46-2d26658c2a4f
+[2025-11-03 23:46:46] [VIEW] DEBUG: Dados do certificado encontrados no banco de dados para ID: 7da3b5af-add7-4fb4-9a46-2d26658c2a4f
+[2025-11-03 23:46:46] [VIEW] DEBUG: Arquivo PNG encontrado: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_7da3b5af-add7-4fb4-9a46-2d26658c2a4f.png
+[2025-11-03 23:46:46] [VIEW] DEBUG: Script view_certificate_files.php iniciado.
+[2025-11-03 23:46:46] [VIEW] DEBUG: ID do certificado recebido: 7da3b5af-add7-4fb4-9a46-2d26658c2a4f
+[2025-11-03 23:46:46] [VIEW] DEBUG: Dados do certificado encontrados no banco de dados para ID: 7da3b5af-add7-4fb4-9a46-2d26658c2a4f
+[2025-11-03 23:46:46] [VIEW] DEBUG: Arquivo PNG encontrado: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_7da3b5af-add7-4fb4-9a46-2d26658c2a4f.png
+[2025-11-03 23:46:46] [VIEW] DEBUG: Mostrando imagem diretamente: Certificado_WilliamCassemiro.png
+[2025-11-03 23:46:46] [VIEW] INFO: Imagem PNG enviada para visualização direta.
+[2025-11-04 00:54:36] [VIEW] DEBUG: Script view_certificate_files.php iniciado.
+[2025-11-04 00:54:36] [VIEW] DEBUG: ID do certificado recebido: eae1a3de-53fe-4497-90ac-419951e15674
+[2025-11-04 00:54:36] [VIEW] DEBUG: Dados do certificado encontrados no banco de dados para ID: eae1a3de-53fe-4497-90ac-419951e15674
+[2025-11-04 00:54:36] [VIEW] DEBUG: Arquivo PNG encontrado: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_eae1a3de-53fe-4497-90ac-419951e15674.png
+[2025-11-04 00:54:36] [VIEW] DEBUG: Script view_certificate_files.php iniciado.
+[2025-11-04 00:54:36] [VIEW] DEBUG: ID do certificado recebido: eae1a3de-53fe-4497-90ac-419951e15674
+[2025-11-04 00:54:36] [VIEW] DEBUG: Dados do certificado encontrados no banco de dados para ID: eae1a3de-53fe-4497-90ac-419951e15674
+[2025-11-04 00:54:36] [VIEW] DEBUG: Arquivo PNG encontrado: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_eae1a3de-53fe-4497-90ac-419951e15674.png
+[2025-11-04 00:54:36] [VIEW] DEBUG: Mostrando imagem diretamente: Certificado_WilliamCassemiro.png
+[2025-11-04 00:54:36] [VIEW] INFO: Imagem PNG enviada para visualização direta.
+[2025-11-03 21:55:21] [DOWNLOAD] DEBUG: Script download_certificate_files.php iniciado.
+[2025-11-03 21:55:21] [DOWNLOAD] DEBUG: ID do certificado recebido: eae1a3de-53fe-4497-90ac-419951e15674, formato solicitado: pdf
+[2025-11-03 21:55:21] [DOWNLOAD] DEBUG: Dados do certificado encontrados no banco de dados.
+[2025-11-03 21:55:21] [DOWNLOAD] DEBUG: Arquivo PNG encontrado: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_eae1a3de-53fe-4497-90ac-419951e15674.png
+[2025-11-03 21:55:21] [DOWNLOAD] DEBUG: PDF convertido já existe e está atualizado: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_eae1a3de-53fe-4497-90ac-419951e15674_converted.pdf
+[2025-11-03 21:55:21] [DOWNLOAD] DEBUG: Preparando download final: Certificado_William_Cassemiro_2025-11-03.pdf (Tipo: application/pdf) - Arquivo: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_eae1a3de-53fe-4497-90ac-419951e15674_converted.pdf
+[2025-11-03 21:55:21] [DOWNLOAD] INFO: Arquivo Certificado_William_Cassemiro_2025-11-03.pdf enviado para download com sucesso.
+[2025-11-04 13:24:13] [VIEW] DEBUG: Script view_certificate_files.php iniciado.
+[2025-11-04 13:24:13] [VIEW] DEBUG: ID do certificado recebido: 7da3b5af-add7-4fb4-9a46-2d26658c2a4f
+[2025-11-04 13:24:13] [VIEW] DEBUG: Dados do certificado encontrados no banco de dados para ID: 7da3b5af-add7-4fb4-9a46-2d26658c2a4f
+[2025-11-04 13:24:13] [VIEW] DEBUG: Arquivo PNG encontrado: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_7da3b5af-add7-4fb4-9a46-2d26658c2a4f.png
+[2025-11-04 13:24:13] [VIEW] DEBUG: Script view_certificate_files.php iniciado.
+[2025-11-04 13:24:13] [VIEW] DEBUG: ID do certificado recebido: 7da3b5af-add7-4fb4-9a46-2d26658c2a4f
+[2025-11-04 13:24:13] [VIEW] DEBUG: Dados do certificado encontrados no banco de dados para ID: 7da3b5af-add7-4fb4-9a46-2d26658c2a4f
+[2025-11-04 13:24:13] [VIEW] DEBUG: Arquivo PNG encontrado: /home/u335416710/domains/translators101.com/public_html/v/certificates/certificate_7da3b5af-add7-4fb4-9a46-2d26658c2a4f.png
+[2025-11-04 13:24:13] [VIEW] DEBUG: Mostrando imagem diretamente: Certificado_WilliamCassemiro.png
+[2025-11-04 13:24:13] [VIEW] INFO: Imagem PNG enviada para visualização direta.
