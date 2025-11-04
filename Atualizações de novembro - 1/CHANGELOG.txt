@@ -2,6 +2,88 @@
               CHANGELOG - SISTEMA DE MAPEAMENTO
 ═══════════════════════════════════════════════════════════════
 
+📅 VERSÃO 1.5 - Verificador de Certificados ✨ NOVA FERRAMENTA
+Data: Dezembro 2025
+
+🆕 NOVA FUNCIONALIDADE PRINCIPAL:
+---------------------------------
+
+✅ VERIFICADOR DE CERTIFICADOS MAPEADOS
+   - Nova página: verificar_certificados_mapeados.php
+   - Permite verificar se certificados foram emitidos após mapeamentos
+   - Interface completa de monitoramento
+   - Filtros por período (24h, 7d, 30d, todos)
+   - Estatísticas detalhadas
+
+🔍 RECURSOS DO VERIFICADOR:
+---------------------------
+
+1. ESTATÍSTICAS GERAIS:
+   - Total de palestras mapeadas
+   - Total de certificados emitidos
+   - Total de usuários certificados
+
+2. FILTRO DE PERÍODO:
+   - Últimas 24 horas (10 mapeamentos mais recentes)
+   - Últimos 7 dias (50 mapeamentos mais recentes)
+   - Últimos 30 dias (200 mapeamentos mais recentes)
+   - Todos (sem limite)
+
+3. INFORMAÇÕES POR PALESTRA:
+   - Título da palestra (Hotmart e Sistema)
+   - Palestrante e duração
+   - Certificados emitidos (lista completa)
+   - Usuários pendentes (assistiram mas sem certificado)
+
+4. DETALHES DE CERTIFICADOS:
+   - Nome e email do usuário
+   - Data de emissão
+   - Código do certificado
+   - Última visualização
+
+5. DETALHES DE USUÁRIOS PENDENTES:
+   - Nome e email
+   - Última visualização
+   - Tempo total assistido
+   - Identificação de casos especiais
+
+🐛 CORREÇÃO IMPORTANTE:
+-----------------------
+   
+   ✅ CORRIGIDO: Erro SQL "Unknown column 'hlm.created_at'"
+   - Removida dependência de coluna inexistente created_at
+   - Ajustada lógica de filtragem por período
+   - Interface atualizada para refletir mudanças
+   - Documentação completa criada (CORRECAO_SQL_CREATED_AT.txt)
+
+💻 ARQUIVOS ADICIONADOS:
+------------------------
+   - verificar_certificados_mapeados.php (12 KB)
+   - CORRECAO_SQL_CREATED_AT.txt
+   - RESUMO_FINAL_CORRECAO.md
+   - GUIA_VERIFICACAO_CERTIFICADOS.txt (se aplicável)
+
+🎨 DESIGN:
+----------
+   - Interface Bootstrap responsiva
+   - Cards com estatísticas visuais
+   - Badges coloridos (sucesso, warning, info)
+   - Listas scrolláveis para grandes volumes
+   - Ícones Font Awesome
+   - Botão de retorno para interface de mapeamento
+
+🔄 FLUXO DE TRABALHO:
+--------------------
+   1. Acessa página de mapeamento
+   2. Cria associações Hotmart ↔ Sistema
+   3. Acessa Verificador de Certificados (botão/link)
+   4. Seleciona período desejado
+   5. Visualiza estatísticas e detalhes
+   6. Identifica pendências
+   7. Retorna ao mapeamento se necessário
+
+═══════════════════════════════════════════════════════════════
+
 📅 VERSÃO 1.1 - Melhorias Visuais e Contadores
 Data: 04 Novembro 2025
 
