@@ -213,12 +213,12 @@ try {
             </div>
             <div class="stat-card">
                 <i class="fas fa-certificate fa-2x text-success"></i>
-                <div class="stat-number"><?php echo $total_certificates; ?></div>
+                <div class="stat-number"><?php echo isset($total_certificates) ? $total_certificates : 0; ?></div>
                 <div class="stat-label">Certificados Emitidos</div>
             </div>
             <div class="stat-card">
                 <i class="fas fa-users fa-2x text-info"></i>
-                <div class="stat-number"><?php echo $total_users_with_certificates; ?></div>
+                <div class="stat-number"><?php echo isset($total_users_with_certificates) ? $total_users_with_certificates : 0; ?></div>
                 <div class="stat-label">Usuários Certificados</div>
             </div>
         </div>
