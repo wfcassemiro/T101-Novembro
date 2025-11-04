@@ -360,6 +360,51 @@ $available_lectures = count($system_lectures) - count($mapped_lecture_ids);
             document.getElementById('mappedCount').textContent = count;
         }
 
+        function updateAvailableCounts() {
+            // Contar palestras não mapeadas
+            const availableHotmart = document.querySelectorAll('#hotmart-list .lecture-item:not(.mapped)').length;
+            const availableSystem = document.querySelectorAll('#system-list .lecture-item:not(.mapped)').length;
+            
+            document.getElementById('availableHotmart').textContent = availableHotmart;
+            document.getElementById('availableSystem').textContent = availableSystem;
+        }
+
+        function markAsAssociated(hotmartTitle, lectureId) {
+            // Marcar palestra Hotmart como mapeada
+            document.querySelectorAll('#hotmart-list .lecture-item').forEach(item => {
+                if (item.dataset.title === hotmartTitle) {
+                    item.classList.add('mapped');
+                    item.dataset.mapped = '1';
+                }
+            });
+            
+            // Marcar palestra do Sistema como mapeada
+            document.querySelectorAll('#system-list .lecture-item').forEach(item => {
+                if (item.dataset.id === lectureId) {
+                    item.classList.add('mapped');
+                    item.dataset.mapped = '1';
+                }
+            });
+        }
+
+        function unmarkAsAssociated(hotmartTitle, lectureTitle) {
+            // Desmarcar palestra Hotmart
+            document.querySelectorAll('#hotmart-list .lecture-item').forEach(item => {
+                if (item.dataset.title.includes(hotmartTitle) || hotmartTitle.includes(item.dataset.title)) {
+                    item.classList.remove('mapped');
+                    item.dataset.mapped = '0';
+                }
+            });
+            
+            // Desmarcar palestra do Sistema
+            document.querySelectorAll('#system-list .lecture-item').forEach(item => {
+                if (item.dataset.title.includes(lectureTitle) || lectureTitle.includes(item.dataset.title)) {
+                    item.classList.remove('mapped');
+                    item.dataset.mapped = '0';
+                }
+            });
+        }
+
         function showAlert(message, type) {
             const alertContainer = document.getElementById('alertContainer');
             const alert = document.createElement('div');
