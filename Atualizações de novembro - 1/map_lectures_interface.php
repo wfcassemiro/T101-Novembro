@@ -266,8 +266,10 @@ $available_lectures = count($system_lectures) - count($mapped_lecture_ids);
                 if (result.success) {
                     showAlert('Associação criada com sucesso!', 'success');
                     addMappingToList(result.mapping_id, data);
+                    markAsAssociated(data.hotmart_title, data.lecture_id);
                     clearSelections();
                     updateMappedCount();
+                    updateAvailableCounts();
                 } else {
                     showAlert('Erro: ' + result.message, 'danger');
                 }
