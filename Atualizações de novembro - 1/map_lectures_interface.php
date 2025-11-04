@@ -35,8 +35,9 @@ usort($system_lectures, function($a, $b) {
 $existing_mappings = [];
 $mapped_hotmart_titles = [];
 $mapped_lecture_ids = [];
+$hotmart_with_data = []; // Array para armazenar dados extras das palestras Hotmart
 try {
-    $stmt = $pdo->query("SELECT id, hotmart_title, lecture_id, lecture_title FROM hotmart_lecture_mapping ORDER BY hotmart_title");
+    $stmt = $pdo->query("SELECT id, hotmart_title, lecture_id, lecture_title, hotmart_page_id FROM hotmart_lecture_mapping ORDER BY hotmart_title");
     $existing_mappings = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
     // Criar arrays de títulos/IDs já mapeados para fácil verificação
@@ -44,6 +45,44 @@ try {
         $mapped_hotmart_titles[] = $mapping['hotmart_title'];
         $mapped_lecture_ids[] = $mapping['lecture_id'];
     }
+    
+    // Buscar dados completos das palestras JÁ MAPEADAS para enriquecer a coluna Hotmart
+    if (!empty($mapped_lecture_ids)) {
+        $placeholders = str_repeat('?,', count($mapped_lecture_ids) - 1) . '?';
+        $stmt = $pdo->prepare("
+            SELECT l.id, l.title, l.speaker, l.duration_minutes, l.created_at, l.category, l.tags, l.level
+            FROM lectures l
+            WHERE l.id IN ($placeholders)
+        ");
+        $stmt->execute($mapped_lecture_ids);
+        $lectures_data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        // Criar um mapa de lecture_id => dados para fácil acesso
+        $lecture_data_map = [];
+        foreach ($lectures_data as $lec) {
+            $lecture_data_map[$lec['id']] = $lec;
+        }
+        
+        // Associar dados das lectures com os títulos Hotmart
+        foreach ($existing_mappings as $mapping) {
+            if (isset($lecture_data_map[$mapping['lecture_id']])) {
+                $hotmart_with_data[$mapping['hotmart_title']] = $lecture_data_map[$mapping['lecture_id']];
+            }
+        }
+    }
+    
+    // Buscar dados da cache de lessons Hotmart
+    $stmt = $pdo->query("SELECT page_id, page_name FROM hotmart_lessons_cache");
+    $hotmart_cache = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    // Criar índice por nome para busca rápida
+    $hotmart_cache_by_name = [];
+    foreach ($hotmart_cache as $cached) {
+        if ($cached['page_name']) {
+            $hotmart_cache_by_name[$cached['page_name']] = $cached['page_id'];
+        }
+    }
+    
 } catch (PDOException $e) {
     $error_message = "Erro ao buscar mapeamentos: " . $e->getMessage();
 }
