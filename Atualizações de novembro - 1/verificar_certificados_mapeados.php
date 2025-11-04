@@ -251,8 +251,7 @@ try {
                             <div class="lecture-meta">
                                 <strong>Hotmart:</strong> <?php echo htmlspecialchars($lecture['hotmart_title']); ?><br>
                                 <strong>Palestrante:</strong> <?php echo htmlspecialchars($lecture['speaker']); ?> | 
-                                <strong>Duração:</strong> <?php echo $lecture['duration_minutes']; ?> min<br>
-                                <strong>Mapeada em:</strong> <?php echo date('d/m/Y H:i', strtotime($lecture['mapped_at'])); ?>
+                                <strong>Duração:</strong> <?php echo $lecture['duration_minutes']; ?> min
                             </div>
                         </div>
                         <div>
