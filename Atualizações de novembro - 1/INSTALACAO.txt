@@ -200,7 +200,31 @@ Após instalar e testar:
 1. Comece mapeando as palestras mais importantes
 2. Use os campos de busca para agilizar o processo
 3. Verifique periodicamente o contador de "Associações Criadas"
-4. Quando terminar, você terá todos os mapeamentos no BD
+4. Use o Verificador de Certificados para monitorar emissões
+5. Quando terminar, você terá todos os mapeamentos no BD
+
+
+🎓 VERIFICADOR DE CERTIFICADOS (NOVO):
+---------------------------------------
+
+O que faz:
+- Mostra certificados emitidos para palestras mapeadas
+- Identifica usuários que assistiram mas não têm certificado
+- Exibe estatísticas gerais de certificação
+- Permite filtrar por período (24h, 7d, 30d, todos)
+
+Como usar:
+1. Acesse: /v/admin/verificar_certificados_mapeados.php
+2. Selecione o período desejado
+3. Visualize as estatísticas e detalhes
+4. Há um botão "Voltar" para retornar ao mapeamento
+
+Informações exibidas:
+- Total de palestras mapeadas
+- Total de certificados emitidos
+- Certificados por palestra
+- Usuários pendentes (assistiram mas sem certificado)
+- Tempo de visualização de cada usuário
 
 
 ═══════════════════════════════════════════════════════════════
