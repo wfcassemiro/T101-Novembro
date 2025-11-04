@@ -95,10 +95,16 @@ include __DIR__ . '/../vision/includes/sidebar.php';
                 </div>
                 <button id="sync-button" class="cta-btn" onclick="startSync()">Iniciar Sincronização</button>
             </div>
-             <a href="map_lectures_manual.php" class="quick-action-card">
+             <a href="map_lectures_interface_vision.php" class="quick-action-card">
                 <div class="card-info">
-                    <div class="quick-action-icon quick-action-icon-orange"><i class="fas fa-hand-pointer"></i></div>
-                    <div class="card-content"><h3>Mapeamento Manual</h3><p>Associar palestras manualmente</p></div>
+                    <div class="quick-action-icon quick-action-icon-orange"><i class="fas fa-link"></i></div>
+                    <div class="card-content"><h3>Mapeamento Hotmart</h3><p>Associar palestras Hotmart com sistema interno</p></div>
+                </div>
+            </a>
+            <a href="verificar_certificados_mapeados.php" class="quick-action-card">
+                <div class="card-info">
+                    <div class="quick-action-icon quick-action-icon-purple"><i class="fas fa-certificate"></i></div>
+                    <div class="card-content"><h3>Verificar Certificados</h3><p>Monitorar certificados das palestras mapeadas</p></div>
                 </div>
             </a>
         </div>
