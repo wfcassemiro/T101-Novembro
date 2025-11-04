@@ -116,9 +116,10 @@ $available_lectures = count($system_lectures) - count($mapped_lecture_ids);
         .lecture-item.mapped { background-color: #c8e6c9; border-color: #4caf50; cursor: not-allowed; opacity: 0.7; }
         .lecture-item.mapped:hover { background-color: #c8e6c9; border-color: #4caf50; }
         .lecture-item.mapped::after { content: ' ✓'; color: #2e7d32; font-weight: bold; }
-        .lecture-metadata { font-size: 0.75em; color: #666; margin-top: 5px; display: flex; gap: 10px; flex-wrap: wrap; }
-        .lecture-metadata .meta-item { display: inline-flex; align-items: center; gap: 3px; }
-        .lecture-metadata .meta-item i { font-size: 0.9em; }
+        .lecture-metadata { font-size: 0.72em; color: #666; margin-top: 6px; display: flex; gap: 8px; flex-wrap: wrap; line-height: 1.4; }
+        .lecture-metadata .meta-item { display: inline-flex; align-items: center; gap: 3px; background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+        .lecture-metadata .meta-item i { font-size: 0.9em; color: #888; }
+        .lecture-item > div:first-child { font-weight: 500; }
         .filter-buttons { display: flex; gap: 10px; margin-bottom: 10px; }
         .filter-buttons .btn-filter { padding: 5px 12px; font-size: 0.85em; }
         .search-box { margin-bottom: 15px; }
