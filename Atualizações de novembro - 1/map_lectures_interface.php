@@ -180,6 +180,20 @@ $available_lectures = count($system_lectures) - count($mapped_lecture_ids);
                     </button>
                 </div>
                 <input type="text" class="form-control search-box" id="searchHotmart" placeholder="🔍 Buscar palestra Hotmart...">
+                
+                <!-- Campo para adicionar palestra manualmente -->
+                <div class="manual-add-section" style="margin: 10px 0; padding: 10px; background: #e3f2fd; border-radius: 5px; border: 2px dashed #2196f3;">
+                    <div style="font-size: 0.85em; font-weight: 600; color: #1976d2; margin-bottom: 5px;">
+                        <i class="fas fa-plus-circle"></i> Adicionar Palestra Hotmart Manualmente
+                    </div>
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control" id="manualHotmartTitle" placeholder="Digite o título da palestra Hotmart...">
+                        <button class="btn btn-primary" type="button" id="btnAddManualHotmart">
+                            <i class="fas fa-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+                
                 <div id="hotmart-list">
                     <?php foreach ($hotmart_lectures as $index => $lecture): 
                         $is_mapped = in_array($lecture, $mapped_hotmart_titles);
