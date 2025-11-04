@@ -19,7 +19,8 @@ try {
     $placeholders = str_repeat('?,', count($ids) - 1) . '?';
     $stmt = $pdo->prepare("
         SELECT id, title, speaker, duration_minutes, created_at, category, tags, level, 
-               description, is_featured, language
+               description, is_featured, language, hotmart_page_id, hotmart_lesson_id, 
+               hotmart_module_id
         FROM lectures 
         WHERE id IN ($placeholders)
     ");
