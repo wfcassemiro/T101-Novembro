@@ -152,6 +152,14 @@ $available_lectures = count($system_lectures) - count($mapped_lecture_ids);
                 <div class="column-title">
                     <i class="fas fa-database"></i> Palestras do Sistema
                 </div>
+                <div class="filter-buttons">
+                    <button class="btn btn-sm btn-outline-primary btn-filter" id="filterSystem">
+                        <i class="fas fa-filter"></i> Mostrar apenas disponíveis
+                    </button>
+                    <button class="btn btn-sm btn-outline-secondary btn-filter" id="showAllSystem" style="display:none;">
+                        <i class="fas fa-list"></i> Mostrar todas
+                    </button>
+                </div>
                 <input type="text" class="form-control search-box" id="searchSystem" placeholder="🔍 Buscar palestra do sistema...">
                 <div id="system-list">
                     <?php foreach ($system_lectures as $lecture): 
