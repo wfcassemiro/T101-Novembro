@@ -10,7 +10,20 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_role']) || $_SESSION[
 
 // Carregar dados
 $hotmart_lectures = require __DIR__ . '/data_hotmart.php';
-$system_lectures = require __DIR__ . '/data_lectures.php';
+$system_lectures_ids = require __DIR__ . '/data_lectures.php';
+
+// Buscar detalhes completos das palestras do sistema (com duração, palestrante, data)
+$system_lectures = [];
+try {
+    $ids = array_column($system_lectures_ids, 'id');
+    $placeholders = str_repeat('?,', count($ids) - 1) . '?';
+    $stmt = $pdo->prepare("SELECT id, title, speaker, duration_minutes, created_at FROM lectures WHERE id IN ($placeholders)");
+    $stmt->execute($ids);
+    $system_lectures = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    // Fallback para dados básicos se houver erro
+    $system_lectures = $system_lectures_ids;
+}
 
 // Ordenar alfabeticamente
 sort($hotmart_lectures);
