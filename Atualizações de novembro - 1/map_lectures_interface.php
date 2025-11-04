@@ -187,6 +187,12 @@ $available_lectures = count($system_lectures) - count($mapped_lecture_ids);
         // Seleção de palestras
         document.querySelectorAll('#hotmart-list .lecture-item').forEach(item => {
             item.addEventListener('click', function() {
+                // Não permite selecionar palestras já mapeadas
+                if (this.dataset.mapped === '1') {
+                    showAlert('Esta palestra da Hotmart já foi associada!', 'warning');
+                    return;
+                }
+                
                 document.querySelectorAll('#hotmart-list .lecture-item').forEach(i => i.classList.remove('selected'));
                 this.classList.add('selected');
                 selectedHotmart = {
@@ -198,6 +204,12 @@ $available_lectures = count($system_lectures) - count($mapped_lecture_ids);
 
         document.querySelectorAll('#system-list .lecture-item').forEach(item => {
             item.addEventListener('click', function() {
+                // Não permite selecionar palestras já mapeadas
+                if (this.dataset.mapped === '1') {
+                    showAlert('Esta palestra do sistema já foi associada!', 'warning');
+                    return;
+                }
+                
                 document.querySelectorAll('#system-list .lecture-item').forEach(i => i.classList.remove('selected'));
                 this.classList.add('selected');
                 selectedSystem = {
