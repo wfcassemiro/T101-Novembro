@@ -352,6 +352,9 @@ $available_lectures = count($system_lectures) - count($mapped_lecture_ids);
                 <button class="btn btn-success btn-map w-100 mb-2" id="btnAssociate" disabled>
                     <i class="fas fa-link"></i> Associar Selecionadas
                 </button>
+                <button class="btn btn-warning btn-map w-100 mb-2" id="btnQuickAssociate">
+                    <i class="fas fa-bolt"></i> Associação Manual Rápida
+                </button>
                 <a href="verificar_certificados_mapeados.php" class="btn btn-info btn-map w-100 mb-2" style="text-decoration: none; display: block; text-align: center;">
                     <i class="fas fa-certificate"></i> Verificar Certificados
                 </a>
