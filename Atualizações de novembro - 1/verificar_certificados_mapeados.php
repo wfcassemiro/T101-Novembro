@@ -256,10 +256,7 @@ try {
                         </div>
                         <div>
                             <span class="cert-badge success">
-                                <i class="fas fa-certificate"></i> <?php echo count($certs_after); ?> novos
-                            </span>
-                            <span class="cert-badge info">
-                                <i class="fas fa-history"></i> <?php echo $certs_before; ?> anteriores
+                                <i class="fas fa-certificate"></i> <?php echo count($certs_after); ?> certificados
                             </span>
                             <?php if (count($users_without) > 0): ?>
                                 <span class="cert-badge warning">
