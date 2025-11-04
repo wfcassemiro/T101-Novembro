@@ -29,7 +29,8 @@
    ├── data_hotmart.php
    ├── data_lectures.php
    ├── save_mapping_ajax.php
-   └── delete_mapping_ajax.php
+   ├── delete_mapping_ajax.php
+   └── verificar_certificados_mapeados.php  ✨ NOVO
 
 2. VERIFICAR PERMISSÕES
    Os arquivos devem ter permissão 644:
