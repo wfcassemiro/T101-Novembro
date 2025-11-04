@@ -86,12 +86,12 @@ $available_lectures = count($system_lectures) - count($mapped_lecture_ids);
         <!-- Stats -->
         <div class="stats">
             <div class="stat-box hotmart">
-                <h4><?php echo count($hotmart_lectures); ?></h4>
-                <small>Palestras Hotmart</small>
+                <h4><span id="availableHotmart"><?php echo $available_hotmart; ?></span> / <?php echo count($hotmart_lectures); ?></h4>
+                <small>Hotmart Disponíveis</small>
             </div>
             <div class="stat-box system">
-                <h4><?php echo count($system_lectures); ?></h4>
-                <small>Palestras Sistema</small>
+                <h4><span id="availableSystem"><?php echo $available_lectures; ?></span> / <?php echo count($system_lectures); ?></h4>
+                <small>Sistema Disponíveis</small>
             </div>
             <div class="stat-box mapped">
                 <h4 id="mappedCount"><?php echo count($existing_mappings); ?></h4>
