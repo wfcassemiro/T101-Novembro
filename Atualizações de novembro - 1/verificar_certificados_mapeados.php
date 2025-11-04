@@ -32,7 +32,7 @@ $error_message = null;
 
 try {
     // 1. Buscar palestras mapeadas no período
-    $stmt = $pdo->query("
+    $sql = "
         SELECT 
             hlm.id as mapping_id,
             hlm.hotmart_title,
@@ -45,8 +45,18 @@ try {
         LEFT JOIN lectures l ON l.id = hlm.lecture_id
         WHERE 1=1 $timeframe_sql
         ORDER BY hlm.created_at DESC
-    ");
-    $mapped_lectures = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    ";
+    
+    $stmt = $pdo->query($sql);
+    if ($stmt) {
+        $mapped_lectures = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if (!$mapped_lectures) {
+            $mapped_lectures = [];
+        }
+    } else {
+        $mapped_lectures = [];
+        $error_message = "Erro ao executar query de palestras mapeadas.";
+    }
     
     if (!$mapped_lectures) {
         $mapped_lectures = [];
