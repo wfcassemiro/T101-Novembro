@@ -4,15 +4,16 @@
 
 📦 ARQUIVOS INCLUÍDOS:
 ---------------------
-✓ map_lectures_interface.php     - Interface principal (15 KB)
-✓ data_hotmart.php                - Dados das palestras Hotmart (22 KB)
-✓ data_lectures.php               - Dados das palestras do sistema (21 KB)
-✓ save_mapping_ajax.php           - API para salvar associações (2 KB)
-✓ delete_mapping_ajax.php         - API para deletar associações (1.3 KB)
-✓ README.md                       - Documentação completa (5.5 KB)
-✓ INSTALACAO.txt                  - Este arquivo
+✓ map_lectures_interface.php         - Interface principal (15 KB)
+✓ data_hotmart.php                    - Dados das palestras Hotmart (22 KB)
+✓ data_lectures.php                   - Dados das palestras do sistema (21 KB)
+✓ save_mapping_ajax.php               - API para salvar associações (2 KB)
+✓ delete_mapping_ajax.php             - API para deletar associações (1.3 KB)
+✓ verificar_certificados_mapeados.php - Verificador de certificados (12 KB) ✨ NOVO
+✓ README.md                           - Documentação completa (5.5 KB)
+✓ INSTALACAO.txt                      - Este arquivo
 
-📋 TOTAL: 6 arquivos PHP + 2 documentações = 67.8 KB
+📋 TOTAL: 7 arquivos PHP + 2 documentações = ~80 KB
 
 
 🚀 PASSO A PASSO DA INSTALAÇÃO:
