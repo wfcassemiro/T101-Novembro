@@ -227,6 +227,35 @@ Informações exibidas:
 - Tempo de visualização de cada usuário
 
 
+⚡ ASSOCIAÇÃO MANUAL DE PALESTRAS (NOVO):
+-----------------------------------------
+
+O que faz:
+- Permite adicionar palestras Hotmart que NÃO estão na lista
+- Duas formas de uso: adicionar à lista OU associação rápida
+- Resolve casos onde palestra nova aparece na Hotmart
+
+Como usar - OPÇÃO 1 (Adicionar à Lista):
+1. Na coluna Hotmart, localize campo azul "Adicionar Palestra Manualmente"
+2. Digite o título da palestra Hotmart
+3. Clique em "Adicionar"
+4. Palestra aparece no topo com badge "MANUAL"
+5. Selecione e associe normalmente
+
+Como usar - OPÇÃO 2 (Associação Rápida):
+1. Clique no botão amarelo "⚡ Associação Manual Rápida"
+2. Digite título Hotmart no formulário
+3. Selecione palestra do sistema no dropdown
+4. Clique em "Criar Associação"
+5. Pronto!
+
+Vantagens:
+- Não depende da lista pré-carregada de 560 palestras
+- Flexibilidade total para casos especiais
+- Interface intuitiva e validada
+- Documentação completa em MANUAL_ASSOCIACAO_MANUAL.md
+
+
 ═══════════════════════════════════════════════════════════════
                     FIM DAS INSTRUÇÕES
 ═══════════════════════════════════════════════════════════════
