@@ -689,6 +689,247 @@ $available_lectures = count($system_lectures) - count($mapped_lecture_ids);
             div.textContent = text;
             return div.innerHTML;
         }
+
+        // ============================================
+        // FUNCIONALIDADE: ADICIONAR PALESTRA HOTMART MANUALMENTE
+        // ============================================
+        document.getElementById('btnAddManualHotmart').addEventListener('click', function() {
+            const titleInput = document.getElementById('manualHotmartTitle');
+            const title = titleInput.value.trim();
+            
+            if (!title) {
+                alert('Por favor, digite o título da palestra Hotmart.');
+                return;
+            }
+            
+            // Verificar se já existe
+            const existingItems = document.querySelectorAll('#hotmart-list .lecture-item');
+            for (let item of existingItems) {
+                if (item.dataset.title.toLowerCase() === title.toLowerCase()) {
+                    alert('Esta palestra já existe na lista!');
+                    return;
+                }
+            }
+            
+            // Criar novo item na lista
+            const newItem = document.createElement('div');
+            newItem.className = 'lecture-item';
+            newItem.dataset.title = title;
+            newItem.dataset.index = 'manual-' + Date.now();
+            newItem.dataset.mapped = '0';
+            newItem.dataset.manual = 'true'; // Marca como adicionado manualmente
+            newItem.innerHTML = `
+                <div>${escapeHtml(title)}</div>
+                <div class="lecture-metadata">
+                    <span class="meta-item" style="background: #ff9800; color: white; padding: 2px 6px; border-radius: 3px; font-size: 0.75em;">
+                        <i class="fas fa-hand-pointer"></i> MANUAL
+                    </span>
+                </div>
+            `;
+            
+            // Adicionar no topo da lista
+            const hotmartList = document.getElementById('hotmart-list');
+            hotmartList.insertBefore(newItem, hotmartList.firstChild);
+            
+            // Limpar campo
+            titleInput.value = '';
+            
+            // Aplicar evento de clique
+            newItem.addEventListener('click', function() {
+                if (this.dataset.mapped === '1') {
+                    alert('Esta palestra já foi associada!');
+                    return;
+                }
+                
+                document.querySelectorAll('#hotmart-list .lecture-item').forEach(item => {
+                    item.classList.remove('selected');
+                });
+                this.classList.add('selected');
+                selectedHotmart = {
+                    title: this.dataset.title,
+                    index: this.dataset.index
+                };
+                updateAssociateButton();
+            });
+            
+            // Scroll para o item adicionado
+            newItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
+            // Feedback visual
+            newItem.style.backgroundColor = '#fff9c4';
+            setTimeout(() => {
+                newItem.style.backgroundColor = '';
+            }, 2000);
+            
+            showAlert('success', `Palestra "${title}" adicionada! Agora você pode selecioná-la e associar.`);
+            
+            // Atualizar contador
+            updateAvailableCounts();
+        });
+        
+        // ============================================
+        // FUNCIONALIDADE: ASSOCIAÇÃO MANUAL RÁPIDA (MODAL)
+        // ============================================
+        document.getElementById('btnQuickAssociate').addEventListener('click', function() {
+            document.getElementById('quickAssociateModal').style.display = 'block';
+        });
+        
+        document.getElementById('closeQuickModal').addEventListener('click', function() {
+            document.getElementById('quickAssociateModal').style.display = 'none';
+        });
+        
+        document.getElementById('cancelQuickAssociate').addEventListener('click', function() {
+            document.getElementById('quickAssociateModal').style.display = 'none';
+        });
+        
+        // Fechar modal ao clicar fora
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('quickAssociateModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Submit do formulário rápido
+        document.getElementById('quickAssociateForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const hotmartTitle = document.getElementById('quickHotmartTitle').value.trim();
+            const lectureId = document.getElementById('quickLectureSelect').value;
+            
+            if (!hotmartTitle) {
+                alert('Por favor, digite o título da palestra Hotmart.');
+                return;
+            }
+            
+            if (!lectureId) {
+                alert('Por favor, selecione uma palestra do sistema.');
+                return;
+            }
+            
+            // Buscar título da palestra selecionada
+            const lectureSelect = document.getElementById('quickLectureSelect');
+            const lectureTitle = lectureSelect.options[lectureSelect.selectedIndex].text;
+            
+            // Salvar associação
+            fetch('save_mapping_ajax.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `hotmart_title=${encodeURIComponent(hotmartTitle)}&lecture_id=${encodeURIComponent(lectureId)}&lecture_title=${encodeURIComponent(lectureTitle)}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showAlert('success', 'Associação criada com sucesso via modo rápido!');
+                    
+                    // Adicionar à lista de associações
+                    addMappingToList(data.mapping_id, hotmartTitle, lectureId, lectureTitle);
+                    
+                    // Marcar como associadas (se existirem nas listas)
+                    markAsAssociated(hotmartTitle, lectureId);
+                    
+                    // Limpar formulário
+                    document.getElementById('quickHotmartTitle').value = '';
+                    document.getElementById('quickLectureSelect').value = '';
+                    
+                    // Fechar modal
+                    document.getElementById('quickAssociateModal').style.display = 'none';
+                    
+                    // Atualizar contadores
+                    updateAvailableCounts();
+                } else {
+                    showAlert('danger', data.message || 'Erro ao criar associação');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showAlert('danger', 'Erro ao processar requisição');
+            });
+        });
     </script>
+    
+    <!-- Modal de Associação Rápida -->
+    <div id="quickAssociateModal" style="display:none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5);">
+        <div style="background-color: #fefefe; margin: 5% auto; padding: 0; border: 1px solid #888; border-radius: 10px; width: 90%; max-width: 600px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+            <!-- Header do Modal -->
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 10px 10px 0 0; position: relative;">
+                <h3 style="margin: 0; font-size: 1.5em;">
+                    <i class="fas fa-bolt"></i> Associação Manual Rápida
+                </h3>
+                <p style="margin: 5px 0 0 0; font-size: 0.9em; opacity: 0.9;">
+                    Crie uma associação completa em uma única etapa
+                </p>
+                <button id="closeQuickModal" style="position: absolute; top: 15px; right: 15px; background: transparent; border: none; color: white; font-size: 1.5em; cursor: pointer; opacity: 0.8; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- Corpo do Modal -->
+            <div style="padding: 30px;">
+                <form id="quickAssociateForm">
+                    <!-- Campo Hotmart -->
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333;">
+                            <i class="fas fa-store" style="color: #e91e63;"></i> Palestra Hotmart
+                        </label>
+                        <input type="text" 
+                               id="quickHotmartTitle" 
+                               class="form-control" 
+                               placeholder="Digite o título completo da palestra Hotmart..."
+                               required
+                               style="padding: 12px; font-size: 1em; border: 2px solid #e0e0e0; border-radius: 5px; transition: border-color 0.3s;"
+                               onfocus="this.style.borderColor='#667eea'"
+                               onblur="this.style.borderColor='#e0e0e0'">
+                        <small style="color: #666; font-size: 0.85em; display: block; margin-top: 5px;">
+                            <i class="fas fa-info-circle"></i> Digite exatamente como aparece na Hotmart
+                        </small>
+                    </div>
+                    
+                    <!-- Select de Palestra do Sistema -->
+                    <div style="margin-bottom: 25px;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333;">
+                            <i class="fas fa-database" style="color: #2196f3;"></i> Palestra do Sistema
+                        </label>
+                        <select id="quickLectureSelect" 
+                                class="form-control" 
+                                required
+                                style="padding: 12px; font-size: 1em; border: 2px solid #e0e0e0; border-radius: 5px; transition: border-color 0.3s;"
+                                onfocus="this.style.borderColor='#667eea'"
+                                onblur="this.style.borderColor='#e0e0e0'">
+                            <option value="">-- Selecione uma palestra --</option>
+                            <?php foreach ($system_lectures as $lecture): 
+                                $is_mapped = in_array($lecture['id'], $mapped_lecture_ids);
+                                if ($is_mapped) continue; // Não mostrar já mapeadas
+                            ?>
+                                <option value="<?php echo htmlspecialchars($lecture['id']); ?>">
+                                    <?php echo htmlspecialchars($lecture['title']); ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                        <small style="color: #666; font-size: 0.85em; display: block; margin-top: 5px;">
+                            <i class="fas fa-filter"></i> Apenas palestras disponíveis (não mapeadas)
+                        </small>
+                    </div>
+                    
+                    <!-- Botões -->
+                    <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                        <button type="button" 
+                                id="cancelQuickAssociate" 
+                                class="btn btn-secondary"
+                                style="padding: 10px 20px; font-weight: 600;">
+                            <i class="fas fa-times"></i> Cancelar
+                        </button>
+                        <button type="submit" 
+                                class="btn btn-success"
+                                style="padding: 10px 20px; font-weight: 600; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none;">
+                            <i class="fas fa-check"></i> Criar Associação
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
