@@ -415,22 +415,28 @@ include __DIR__ . '/../vision/includes/sidebar.php';
     <div class="video-card">
     <h2><i class="fas fa-plus-circle"></i> Adicionar Novo Glossário</h2>
 
-    <form method="POST" class="vision-form">
+    <form method="POST" style="width: 100%;">
     <input type="hidden" name="action" value="add_glossary">
 
-    <div class="form-grid">
-    <div class="form-group form-group-wide">
-    <label for="title">
-    <i class="fas fa-heading"></i> Título do Glossário *
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 1.5rem;">
+    <div style="display: flex; flex-direction: column; gap: 0.5rem; grid-column: span 2;">
+    <label for="title" style="font-weight: 600; font-size: 0.95rem; color: #fff; display: flex; align-items: center; gap: 0.5rem;">
+    <i class="fas fa-heading" style="color: #FFD700; font-size: 0.9rem;"></i> Título do Glossário *
     </label>
-    <input type="text" id="title" name="title" required>
+    <input type="text" id="title" name="title" required
+           style="width: 100%; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.05); color: #fff; font-size: 0.95rem; font-family: 'Inter', sans-serif; transition: all 0.3s ease;"
+           onfocus="this.style.borderColor='#7B61FF'; this.style.background='rgba(123, 97, 255, 0.1)'; this.style.boxShadow='0 0 0 3px rgba(123, 97, 255, 0.2)';"
+           onblur="this.style.borderColor='rgba(255, 255, 255, 0.2)'; this.style.background='rgba(255, 255, 255, 0.05)'; this.style.boxShadow='none';">
     </div>
 
-    <div class="form-group">
-    <label for="category">
-    <i class="fas fa-tags"></i> Categoria *
+    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+    <label for="category" style="font-weight: 600; font-size: 0.95rem; color: #fff; display: flex; align-items: center; gap: 0.5rem;">
+    <i class="fas fa-tags" style="color: #FFD700; font-size: 0.9rem;"></i> Categoria *
     </label>
-    <select id="category" name="category" required>
+    <select id="category" name="category" required
+            style="width: 100%; padding: 0.75rem 1rem; padding-right: 2.5rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.05) url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2712%27 height=%2712%27 viewBox=%270 0 12 12%27%3E%3Cpath fill=%27%23FFD700%27 d=%27M6 9L1 4h10z%27/%3E%3C/svg%3E') no-repeat right 1rem center; color: #fff; font-size: 0.95rem; font-family: 'Inter', sans-serif; cursor: pointer; appearance: none; transition: all 0.3s ease;"
+            onfocus="this.style.borderColor='#7B61FF'; this.style.background='rgba(123, 97, 255, 0.1) url(data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2712%27 height=%2712%27 viewBox=%270 0 12 12%27%3E%3Cpath fill=%27%23FFD700%27 d=%27M6 9L1 4h10z%27/%3E%3C/svg%3E) no-repeat right 1rem center'; this.style.boxShadow='0 0 0 3px rgba(123, 97, 255, 0.2)';"
+            onblur="this.style.borderColor='rgba(255, 255, 255, 0.2)'; this.style.background='rgba(255, 255, 255, 0.05) url(data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2712%27 height=%2712%27 viewBox=%270 0 12 12%27%3E%3Cpath fill=%27%23FFD700%27 d=%27M6 9L1 4h10z%27/%3E%3C/svg%3E) no-repeat right 1rem center'; this.style.boxShadow='none';">
     <option value="">Selecione uma categoria</option>
     <option value="Jurídico">Jurídico</option>
     <option value="Médico">Médico</option>
@@ -442,11 +448,14 @@ include __DIR__ . '/../vision/includes/sidebar.php';
     </select>
     </div>
 
-    <div class="form-group">
-    <label for="file_type">
-    <i class="fas fa-file"></i> Tipo de Arquivo *
+    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+    <label for="file_type" style="font-weight: 600; font-size: 0.95rem; color: #fff; display: flex; align-items: center; gap: 0.5rem;">
+    <i class="fas fa-file" style="color: #FFD700; font-size: 0.9rem;"></i> Tipo de Arquivo *
     </label>
-    <select id="file_type" name="file_type" required>
+    <select id="file_type" name="file_type" required
+            style="width: 100%; padding: 0.75rem 1rem; padding-right: 2.5rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.05) url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2712%27 height=%2712%27 viewBox=%270 0 12 12%27%3E%3Cpath fill=%27%23FFD700%27 d=%27M6 9L1 4h10z%27/%3E%3C/svg%3E') no-repeat right 1rem center; color: #fff; font-size: 0.95rem; font-family: 'Inter', sans-serif; cursor: pointer; appearance: none; transition: all 0.3s ease;"
+            onfocus="this.style.borderColor='#7B61FF'; this.style.background='rgba(123, 97, 255, 0.1) url(data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2712%27 height=%2712%27 viewBox=%270 0 12 12%27%3E%3Cpath fill=%27%23FFD700%27 d=%27M6 9L1 4h10z%27/%3E%3C/svg%3E) no-repeat right 1rem center'; this.style.boxShadow='0 0 0 3px rgba(123, 97, 255, 0.2)';"
+            onblur="this.style.borderColor='rgba(255, 255, 255, 0.2)'; this.style.background='rgba(255, 255, 255, 0.05) url(data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2712%27 height=%2712%27 viewBox=%270 0 12 12%27%3E%3Cpath fill=%27%23FFD700%27 d=%27M6 9L1 4h10z%27/%3E%3C/svg%3E) no-repeat right 1rem center'; this.style.boxShadow='none';">
     <option value="">Selecione o tipo</option>
     <option value="PDF">PDF</option>
     <option value="XLSX">Excel (XLSX)</option>
@@ -455,23 +464,32 @@ include __DIR__ . '/../vision/includes/sidebar.php';
     </select>
     </div>
 
-    <div class="form-group">
-    <label for="download_url">
-    <i class="fas fa-link"></i> URL de Download
+    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+    <label for="download_url" style="font-weight: 600; font-size: 0.95rem; color: #fff; display: flex; align-items: center; gap: 0.5rem;">
+    <i class="fas fa-link" style="color: #FFD700; font-size: 0.9rem;"></i> URL de Download
     </label>
-    <input type="url" id="download_url" name="download_url" placeholder="https://exemplo.com/arquivo.pdf">
+    <input type="url" id="download_url" name="download_url" placeholder="https://exemplo.com/arquivo.pdf"
+           style="width: 100%; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.05); color: #fff; font-size: 0.95rem; font-family: 'Inter', sans-serif; transition: all 0.3s ease;"
+           onfocus="this.style.borderColor='#7B61FF'; this.style.background='rgba(123, 97, 255, 0.1)'; this.style.boxShadow='0 0 0 3px rgba(123, 97, 255, 0.2)';"
+           onblur="this.style.borderColor='rgba(255, 255, 255, 0.2)'; this.style.background='rgba(255, 255, 255, 0.05)'; this.style.boxShadow='none';">
     </div>
 
-    <div class="form-group form-group-wide">
-    <label for="description">
-    <i class="fas fa-file-alt"></i> Descrição
+    <div style="display: flex; flex-direction: column; gap: 0.5rem; grid-column: span 2;">
+    <label for="description" style="font-weight: 600; font-size: 0.95rem; color: #fff; display: flex; align-items: center; gap: 0.5rem;">
+    <i class="fas fa-file-alt" style="color: #FFD700; font-size: 0.9rem;"></i> Descrição
     </label>
-    <textarea id="description" name="description" rows="4"></textarea>
+    <textarea id="description" name="description" rows="4"
+              style="width: 100%; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.05); color: #fff; font-size: 0.95rem; font-family: 'Inter', sans-serif; resize: vertical; min-height: 100px; line-height: 1.6; transition: all 0.3s ease;"
+              onfocus="this.style.borderColor='#7B61FF'; this.style.background='rgba(123, 97, 255, 0.1)'; this.style.boxShadow='0 0 0 3px rgba(123, 97, 255, 0.2)';"
+              onblur="this.style.borderColor='rgba(255, 255, 255, 0.2)'; this.style.background='rgba(255, 255, 255, 0.05)'; this.style.boxShadow='none';"></textarea>
     </div>
     </div>
 
-    <div class="form-actions">
-    <button type="submit" class="cta-btn">
+    <div style="display: flex; gap: 1rem; justify-content: flex-start; margin-top: 1.5rem;">
+    <button type="submit" 
+            style="padding: 0.85rem 2rem; border-radius: 8px; border: none; background: linear-gradient(135deg, #7B61FF, #483D8B); color: #fff; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem;"
+            onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(123, 97, 255, 0.4)';"
+            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
     <i class="fas fa-plus"></i> Adicionar Glossário
     </button>
     </div>
