@@ -56,6 +56,9 @@ $available_lectures = count($system_lectures) - count($mapped_lecture_ids);
         .lecture-item { padding: 10px; margin-bottom: 8px; border: 1px solid #dee2e6; border-radius: 5px; cursor: pointer; transition: all 0.3s; font-size: 0.9em; }
         .lecture-item:hover { background-color: #e3f2fd; border-color: #2196F3; }
         .lecture-item.selected { background-color: #bbdefb; border-color: #1976D2; border-width: 2px; }
+        .lecture-item.mapped { background-color: #c8e6c9; border-color: #4caf50; cursor: not-allowed; opacity: 0.7; }
+        .lecture-item.mapped:hover { background-color: #c8e6c9; border-color: #4caf50; }
+        .lecture-item.mapped::after { content: ' ✓'; color: #2e7d32; font-weight: bold; }
         .search-box { margin-bottom: 15px; }
         .stats { display: flex; gap: 20px; margin-bottom: 15px; }
         .stat-box { flex: 1; padding: 15px; border-radius: 8px; text-align: center; }
