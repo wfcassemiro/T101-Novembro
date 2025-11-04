@@ -61,9 +61,6 @@ include __DIR__ . '/../vision/includes/sidebar.php';
             <a href="certificados.php" class="quick-action-card">
                 <div class="card-info"><div class="quick-action-icon quick-action-icon-green"><i class="fas fa-certificate"></i></div><div class="card-content"><h3>Certificados</h3><p>Gerar e validar</p></div></div><span class="card-stat"><?php echo $total_certificates_formatted; ?></span>
             </a>
-            <a href="glossarios.php" class="quick-action-card">
-                <div class="card-info"><div class="quick-action-icon quick-action-icon-red"><i class="fas fa-book"></i></div><div class="card-content"><h3>Glossários</h3><p>Gerenciar arquivos</p></div></div><span class="card-stat"><?php echo $total_glossaries_formatted; ?></span>
-            </a>
             <a href="interesse_cursos.php" class="quick-action-card">
                 <div class="card-info"><div class="quick-action-icon quick-action-icon-gold"><i class="fas fa-user-graduate"></i></div><div class="card-content"><h3>Interessados</h3><p>Ver lista de leads</p></div></div><span class="card-stat"><?php echo $total_signups_formatted; ?></span>
             </a>
