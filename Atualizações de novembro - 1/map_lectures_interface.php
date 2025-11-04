@@ -335,9 +335,12 @@ $available_lectures = count($system_lectures) - count($mapped_lecture_ids);
                 <div class="column-title">
                     <i class="fas fa-check-circle"></i> Associações Criadas
                 </div>
-                <button class="btn btn-success btn-map w-100" id="btnAssociate" disabled>
+                <button class="btn btn-success btn-map w-100 mb-2" id="btnAssociate" disabled>
                     <i class="fas fa-link"></i> Associar Selecionadas
                 </button>
+                <a href="verificar_certificados_mapeados.php" class="btn btn-info btn-map w-100 mb-2" style="text-decoration: none; display: block; text-align: center;">
+                    <i class="fas fa-certificate"></i> Verificar Certificados
+                </a>
                 <div id="mappings-list">
                     <?php if (empty($existing_mappings)): ?>
                         <p class="text-muted text-center mt-3">Nenhuma associação criada ainda.</p>
