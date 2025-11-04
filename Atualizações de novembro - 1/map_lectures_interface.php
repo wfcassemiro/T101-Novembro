@@ -20,12 +20,24 @@ usort($system_lectures, function($a, $b) {
 
 // Buscar mapeamentos existentes
 $existing_mappings = [];
+$mapped_hotmart_titles = [];
+$mapped_lecture_ids = [];
 try {
     $stmt = $pdo->query("SELECT id, hotmart_title, lecture_id, lecture_title FROM hotmart_lecture_mapping ORDER BY hotmart_title");
     $existing_mappings = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    // Criar arrays de títulos/IDs já mapeados para fácil verificação
+    foreach ($existing_mappings as $mapping) {
+        $mapped_hotmart_titles[] = $mapping['hotmart_title'];
+        $mapped_lecture_ids[] = $mapping['lecture_id'];
+    }
 } catch (PDOException $e) {
     $error_message = "Erro ao buscar mapeamentos: " . $e->getMessage();
 }
+
+// Contar palestras disponíveis (não mapeadas)
+$available_hotmart = count($hotmart_lectures) - count($mapped_hotmart_titles);
+$available_lectures = count($system_lectures) - count($mapped_lecture_ids);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
