@@ -1,0 +1,292 @@
+═══════════════════════════════════════════════════════════════
+       VERSÃO 1.6 - ASSOCIAÇÃO MANUAL DE PALESTRAS HOTMART
+═══════════════════════════════════════════════════════════════
+
+🎯 PROBLEMA RESOLVIDO:
+---------------------
+
+Antes: Só era possível mapear as 560 palestras pré-carregadas da Hotmart
+Agora:  Você pode adicionar QUALQUER palestra Hotmart que encontrar!
+
+═══════════════════════════════════════════════════════════════
+
+✨ DUAS FORMAS DE ADICIONAR PALESTRAS MANUALMENTE:
+
+┌───────────────────────────────────────────────────────────┐
+│                    OPÇÃO 1: VISUAL                        │
+│            Adicionar à Lista e Selecionar                 │
+├───────────────────────────────────────────────────────────┤
+│                                                           │
+│  Localização: Coluna Hotmart (esquerda)                  │
+│  Campo azul logo abaixo da busca                         │
+│                                                           │
+│  ┌─────────────────────────────────────────┐            │
+│  │ ➕ Adicionar Palestra Hotmart Manual... │            │
+│  │ [Digite título...        ] [Adicionar]  │            │
+│  └─────────────────────────────────────────┘            │
+│                                                           │
+│  Passo a passo:                                          │
+│  1️⃣  Digite o título da palestra Hotmart                │
+│  2️⃣  Clique em "Adicionar"                              │
+│  3️⃣  Palestra aparece NO TOPO com badge "MANUAL" 🟠     │
+│  4️⃣  Selecione-a (como qualquer outra)                  │
+│  5️⃣  Selecione palestra do sistema                      │
+│  6️⃣  Clique em "Associar Selecionadas"                  │
+│                                                           │
+│  ✅ Ideal para: Múltiplas associações, revisão visual   │
+│                                                           │
+└───────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────┐
+│                   OPÇÃO 2: RÁPIDA                         │
+│           Associação Direta via Modal                     │
+├───────────────────────────────────────────────────────────┤
+│                                                           │
+│  Localização: Coluna Associações (direita)               │
+│  Botão amarelo entre "Associar" e "Certificados"        │
+│                                                           │
+│  [⚡ Associação Manual Rápida]  ← AQUI                  │
+│                                                           │
+│  Abre modal com formulário:                              │
+│  ┌────────────────────────────────────────┐             │
+│  │  ⚡ Associação Manual Rápida      [X] │             │
+│  ├────────────────────────────────────────┤             │
+│  │                                        │             │
+│  │  🏪 Palestra Hotmart:                 │             │
+│  │  [_____________________________]      │             │
+│  │                                        │             │
+│  │  💾 Palestra do Sistema:              │             │
+│  │  [▼ Selecione palestra...     ▼]     │             │
+│  │                                        │             │
+│  │      [Cancelar]  [✓ Criar Associação] │             │
+│  └────────────────────────────────────────┘             │
+│                                                           │
+│  Passo a passo:                                          │
+│  1️⃣  Clique no botão amarelo                            │
+│  2️⃣  Digite título Hotmart                              │
+│  3️⃣  Selecione palestra do sistema no dropdown          │
+│  4️⃣  Clique em "Criar Associação"                       │
+│  5️⃣  Pronto! Modal fecha automaticamente                │
+│                                                           │
+│  ✅ Ideal para: Casos pontuais, velocidade              │
+│                                                           │
+└───────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════
+
+📊 COMPARAÇÃO LADO A LADO:
+
+╔════════════════════╦══════════════════╦════════════════════╗
+║  Característica    ║  Opção 1 (Lista) ║  Opção 2 (Rápida) ║
+╠════════════════════╬══════════════════╬════════════════════╣
+║  Velocidade        ║    ⭐⭐⭐         ║    ⭐⭐⭐⭐⭐      ║
+║  Visual            ║    ⭐⭐⭐⭐⭐      ║    ⭐⭐⭐          ║
+║  Etapas            ║    3 cliques     ║    1 clique        ║
+║  Fica na lista?    ║    ✅ Sim        ║    ❌ Não          ║
+║  Revisar antes?    ║    ✅ Sim        ║    ⚠️  Não         ║
+║  Múltiplas assoc.  ║    ✅ Fácil      ║    ⚠️  Repetitivo  ║
+╚════════════════════╩══════════════════╩════════════════════╝
+
+═══════════════════════════════════════════════════════════════
+
+🎨 ELEMENTOS VISUAIS NOVOS:
+
+1. CAMPO AZUL (Opção 1):
+   - Fundo: #e3f2fd (azul claro)
+   - Borda: tracejada azul
+   - Ícone: ➕ Plus circle
+   - Posição: Abaixo da busca Hotmart
+
+2. BADGE "MANUAL":
+   - Cor: Laranja (#ff9800)
+   - Aparece em palestras adicionadas manualmente
+   - Identifica facilmente origem da palestra
+
+3. DESTAQUE TEMPORÁRIO:
+   - Fundo amarelo por 2 segundos
+   - Aparece ao adicionar palestra
+   - Scroll automático para o item
+
+4. BOTÃO AMARELO (Opção 2):
+   - Cor: warning (amarelo Bootstrap)
+   - Ícone: ⚡ Bolt (raio)
+   - Texto: "Associação Manual Rápida"
+
+5. MODAL ELEGANTE:
+   - Gradiente roxo no header
+   - Campos com focus highlight
+   - Ícones coloridos (🏪 rosa, 💾 azul)
+   - Botão gradiente para submit
+
+═══════════════════════════════════════════════════════════════
+
+✅ VALIDAÇÕES IMPLEMENTADAS:
+
+❌ NÃO PERMITE:
+- Título vazio
+- Títulos duplicados (já existentes na lista)
+- Selecionar palestras já mapeadas
+- Associar sem preencher campos obrigatórios
+
+✅ PERMITE:
+- Qualquer título que não exista
+- Maiúsculas/minúsculas (não é case-sensitive para duplicatas)
+- Caracteres especiais, acentos, números
+- Títulos longos (até 500 caracteres)
+
+═══════════════════════════════════════════════════════════════
+
+💾 ARMAZENAMENTO:
+
+Opção 1 (Lista):
+1. Palestra adicionada temporariamente (sessão)
+2. Ao associar, salva no banco de dados
+3. Fica permanente na tabela hotmart_lecture_mapping
+4. Na próxima visita, aparece como mapeada
+
+Opção 2 (Rápida):
+1. Salva direto no banco de dados
+2. Não adiciona à lista visual
+3. Aparece em "Associações Criadas"
+4. Permanente na tabela hotmart_lecture_mapping
+
+═══════════════════════════════════════════════════════════════
+
+🔄 INTEGRAÇÃO COM SISTEMA EXISTENTE:
+
+✅ Totalmente compatível com:
+- Sistema de busca
+- Filtros (mostrar disponíveis)
+- Contadores automáticos
+- Marcação visual (fundo verde)
+- Deletar associações
+- Verificador de certificados
+
+✅ Palestras manuais funcionam IGUAL às pré-carregadas:
+- Geram certificados normalmente
+- Aparecem no verificador
+- Podem ser deletadas
+- Mesmas regras de duplicação
+
+═══════════════════════════════════════════════════════════════
+
+📚 CENÁRIOS DE USO REAIS:
+
+Cenário 1: Nova palestra lançada na Hotmart
+→ Use Associação Rápida
+→ Cria em segundos
+
+Cenário 2: Revisão de palestras não mapeadas
+→ Use Adicionar à Lista
+→ Adicione várias, revise, depois associe
+
+Cenário 3: Palestra com nome diferente na Hotmart
+→ Use qualquer opção
+→ Digite o nome CORRETO da Hotmart
+
+Cenário 4: Correção de mapeamento
+→ Delete o antigo
+→ Use Associação Rápida para recriar
+
+═══════════════════════════════════════════════════════════════
+
+⚠️ AVISOS IMPORTANTES:
+
+1. TÍTULOS DEVEM SER EXATOS
+   - Copie da Hotmart se possível
+   - Evita problemas futuros
+   - Sistema de certificados usa título exato
+
+2. NÃO TEM METADADOS
+   - Palestras manuais não terão duração, palestrante, etc.
+   - Apenas o título é salvo
+   - Certificados funcionam normalmente
+
+3. NÃO PODE EDITAR TÍTULO
+   - Se errar, delete e recrie
+   - Use botão de lixeira 🗑️
+
+4. DROPDOWN FILTRA AUTOMATICAMENTE
+   - Só mostra palestras disponíveis
+   - Se palestra não aparece, já foi mapeada
+
+═══════════════════════════════════════════════════════════════
+
+💡 DICAS DE PRODUTIVIDADE:
+
+✅ FAÇA:
+- Copie e cole títulos da Hotmart
+- Use Rápida para casos únicos
+- Use Lista para lote de palestras
+- Revise títulos antes de salvar
+- Use Verificador após mapear
+
+❌ NÃO FAÇA:
+- Digite títulos de memória (pode errar)
+- Adicione todas manualmente (use importação se possível)
+- Crie duplicatas (sistema bloqueia mesmo)
+- Ignore validações (elas protegem seus dados)
+
+═══════════════════════════════════════════════════════════════
+
+📖 DOCUMENTAÇÃO ADICIONAL:
+
+Arquivo: MANUAL_ASSOCIACAO_MANUAL.md
+Conteúdo:
+- Guia completo passo a passo
+- Screenshots e diagramas
+- Resolução de problemas
+- FAQs
+- Comparações detalhadas
+
+═══════════════════════════════════════════════════════════════
+
+🎓 RESUMO EXECUTIVO:
+
+ANTES da v1.6:
+❌ Só podia mapear 560 palestras pré-carregadas
+❌ Novas palestras Hotmart = problema
+❌ Casos especiais = impossíveis
+
+DEPOIS da v1.6:
+✅ Qualquer palestra pode ser mapeada
+✅ Duas formas flexíveis de adicionar
+✅ Interface intuitiva e validada
+✅ Totalmente integrado ao sistema
+✅ Documentação completa
+
+═══════════════════════════════════════════════════════════════
+
+🚀 IMPLANTAÇÃO:
+
+Arquivo modificado:
+- map_lectures_interface.php (linhas 174-182, 338-342, 687-880)
+
+Novos arquivos:
+- MANUAL_ASSOCIACAO_MANUAL.md
+- VERSAO_1.6_ASSOCIACAO_MANUAL.txt (este arquivo)
+
+Mudanças no banco:
+- Nenhuma! Usa tabela existente
+
+Compatibilidade:
+- 100% retrocompatível
+- Não quebra nada existente
+- Mapeamentos antigos continuam funcionando
+
+═══════════════════════════════════════════════════════════════
+
+✅ STATUS: PRONTO PARA PRODUÇÃO
+
+Testado:
+✅ Adicionar palestra manualmente (Opção 1)
+✅ Associação rápida (Opção 2)
+✅ Validações todas funcionando
+✅ Integração com sistema existente
+✅ Modal abrindo/fechando corretamente
+✅ Contadores atualizando
+✅ Salvamento no banco de dados
+
+═══════════════════════════════════════════════════════════════
+                    FIM DA DOCUMENTAÇÃO V1.6
+═══════════════════════════════════════════════════════════════
