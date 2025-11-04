@@ -39,6 +39,7 @@
    chmod 644 /public_html/v/admin/data_lectures.php
    chmod 644 /public_html/v/admin/save_mapping_ajax.php
    chmod 644 /public_html/v/admin/delete_mapping_ajax.php
+   chmod 644 /public_html/v/admin/verificar_certificados_mapeados.php
 
 3. VERIFICAR BANCO DE DADOS
    Certifique-se que a tabela existe:
