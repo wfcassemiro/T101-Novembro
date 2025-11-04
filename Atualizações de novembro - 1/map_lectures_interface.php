@@ -175,12 +175,54 @@ $available_lectures = count($system_lectures) - count($mapped_lecture_ids);
                 <div id="hotmart-list">
                     <?php foreach ($hotmart_lectures as $index => $lecture): 
                         $is_mapped = in_array($lecture, $mapped_hotmart_titles);
+                        $extra_data = isset($hotmart_with_data[$lecture]) ? $hotmart_with_data[$lecture] : null;
+                        $page_id = isset($hotmart_cache_by_name[$lecture]) ? $hotmart_cache_by_name[$lecture] : null;
                     ?>
                         <div class="lecture-item <?php echo $is_mapped ? 'mapped' : ''; ?>" 
                              data-title="<?php echo htmlspecialchars($lecture); ?>" 
                              data-index="<?php echo $index; ?>"
                              data-mapped="<?php echo $is_mapped ? '1' : '0'; ?>">
-                            <?php echo htmlspecialchars($lecture); ?>
+                            <div><?php echo htmlspecialchars($lecture); ?></div>
+                            
+                            <?php if ($extra_data || $page_id): ?>
+                                <div class="lecture-metadata">
+                                    <?php if ($extra_data && isset($extra_data['duration_minutes'])): ?>
+                                        <span class="meta-item">
+                                            <i class="fas fa-clock"></i> <?php echo $extra_data['duration_minutes']; ?> min
+                                        </span>
+                                    <?php endif; ?>
+                                    
+                                    <?php if ($extra_data && isset($extra_data['speaker'])): ?>
+                                        <span class="meta-item">
+                                            <i class="fas fa-user"></i> <?php echo htmlspecialchars($extra_data['speaker']); ?>
+                                        </span>
+                                    <?php endif; ?>
+                                    
+                                    <?php if ($extra_data && isset($extra_data['created_at'])): ?>
+                                        <span class="meta-item">
+                                            <i class="fas fa-calendar"></i> <?php echo date('d/m/Y', strtotime($extra_data['created_at'])); ?>
+                                        </span>
+                                    <?php endif; ?>
+                                    
+                                    <?php if ($extra_data && !empty($extra_data['category'])): ?>
+                                        <span class="meta-item">
+                                            <i class="fas fa-tag"></i> <?php echo htmlspecialchars($extra_data['category']); ?>
+                                        </span>
+                                    <?php endif; ?>
+                                    
+                                    <?php if ($extra_data && !empty($extra_data['level'])): ?>
+                                        <span class="meta-item">
+                                            <i class="fas fa-layer-group"></i> <?php echo htmlspecialchars($extra_data['level']); ?>
+                                        </span>
+                                    <?php endif; ?>
+                                    
+                                    <?php if ($page_id): ?>
+                                        <span class="meta-item" title="ID da página Hotmart">
+                                            <i class="fas fa-hashtag"></i> <?php echo htmlspecialchars(substr($page_id, 0, 8)); ?>...
+                                        </span>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     <?php endforeach; ?>
                 </div>
