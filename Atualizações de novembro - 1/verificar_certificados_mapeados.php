@@ -23,6 +23,13 @@ $timeframe_sql = $selected_timeframe !== 'all'
     ? "AND hlm.created_at >= NOW() - INTERVAL " . $timeframes[$selected_timeframe]
     : '';
 
+// Inicializar variáveis
+$mapped_lectures = [];
+$certificate_stats = [];
+$total_certificates = 0;
+$total_users_with_certificates = 0;
+$error_message = null;
+
 try {
     // 1. Buscar palestras mapeadas no período
     $stmt = $pdo->query("
