@@ -71,7 +71,7 @@ try {
 
     // 2. Para cada palestra mapeada, verificar certificados emitidos
     foreach ($mapped_lectures as $lecture) {
-        // Certificados emitidos APÓS o mapeamento
+        // Buscar TODOS os certificados desta palestra (não temos data de mapeamento)
         $stmt = $pdo->prepare("
             SELECT 
                 c.id,
@@ -86,21 +86,13 @@ try {
             FROM certificates c
             LEFT JOIN users u ON u.id = c.user_id
             WHERE c.lecture_id = ?
-            AND c.issued_at >= ?
             ORDER BY c.issued_at DESC
         ");
-        $stmt->execute([$lecture['lecture_id'], $lecture['mapped_at']]);
+        $stmt->execute([$lecture['lecture_id']]);
         $certificates = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // Certificados emitidos ANTES do mapeamento (para comparação)
-        $stmt = $pdo->prepare("
-            SELECT COUNT(*) as count
-            FROM certificates
-            WHERE lecture_id = ?
-            AND issued_at < ?
-        ");
-        $stmt->execute([$lecture['lecture_id'], $lecture['mapped_at']]);
-        $certs_before = $stmt->fetch(PDO::FETCH_ASSOC)['count'];
+        // Total de certificados para esta palestra
+        $certs_before = 0; // Não temos como distinguir "antes" e "depois" sem data de mapeamento
 
         // Usuários que visualizaram mas não têm certificado
         $stmt = $pdo->prepare("
