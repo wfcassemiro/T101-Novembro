@@ -47,12 +47,12 @@ try {
         ORDER BY hlm.created_at DESC
     ");
     $mapped_lectures = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    if (!$mapped_lectures) {
+        $mapped_lectures = [];
+    }
 
     // 2. Para cada palestra mapeada, verificar certificados emitidos
-    $certificate_stats = [];
-    $total_certificates = 0;
-    $total_users_with_certificates = 0;
-
     foreach ($mapped_lectures as $lecture) {
         // Certificados emitidos APÓS o mapeamento
         $stmt = $pdo->prepare("
