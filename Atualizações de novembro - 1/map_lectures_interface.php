@@ -312,6 +312,18 @@ $available_lectures = count($system_lectures) - count($mapped_lecture_ids);
                                         <i class="fas fa-star" style="color: #ffc107;"></i> Destaque
                                     </span>
                                 <?php endif; ?>
+                                
+                                <?php if (!empty($lecture['hotmart_page_id'])): ?>
+                                    <span class="meta-item" title="Hotmart Page ID">
+                                        <i class="fas fa-link"></i> H:<?php echo htmlspecialchars(substr($lecture['hotmart_page_id'], 0, 6)); ?>
+                                    </span>
+                                <?php endif; ?>
+                                
+                                <?php if (!empty($lecture['hotmart_lesson_id'])): ?>
+                                    <span class="meta-item" title="Hotmart Lesson ID">
+                                        <i class="fas fa-book"></i> L:<?php echo htmlspecialchars(substr($lecture['hotmart_lesson_id'], 0, 6)); ?>
+                                    </span>
+                                <?php endif; ?>
                             </div>
                         </div>
                     <?php endforeach; ?>
