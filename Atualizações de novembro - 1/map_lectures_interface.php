@@ -56,7 +56,8 @@ try {
     if (!empty($mapped_lecture_ids)) {
         $placeholders = str_repeat('?,', count($mapped_lecture_ids) - 1) . '?';
         $stmt = $pdo->prepare("
-            SELECT l.id, l.title, l.speaker, l.duration_minutes, l.created_at, l.category, l.tags, l.level
+            SELECT l.id, l.title, l.speaker, l.duration_minutes, l.created_at, l.category, l.tags, l.level,
+                   l.hotmart_page_id, l.hotmart_lesson_id, l.hotmart_module_id
             FROM lectures l
             WHERE l.id IN ($placeholders)
         ");
