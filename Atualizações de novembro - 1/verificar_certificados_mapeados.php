@@ -129,6 +129,12 @@ try {
 
 } catch (PDOException $e) {
     $error_message = "Erro ao buscar dados: " . $e->getMessage();
+    $mapped_lectures = [];
+    $certificate_stats = [];
+} catch (Exception $e) {
+    $error_message = "Erro inesperado: " . $e->getMessage();
+    $mapped_lectures = [];
+    $certificate_stats = [];
 }
 ?>
 <!DOCTYPE html>
