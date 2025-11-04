@@ -194,11 +194,21 @@ try {
             </div>
         </div>
 
+        <!-- Debug Info (remover depois) -->
+        <?php if (isset($_GET['debug'])): ?>
+            <div class="alert alert-info">
+                <strong>Debug Info:</strong><br>
+                Mapped Lectures: <?php echo is_array($mapped_lectures) ? count($mapped_lectures) : 'NOT AN ARRAY'; ?><br>
+                Timeframe: <?php echo $selected_timeframe; ?><br>
+                SQL: <?php echo htmlspecialchars($timeframe_sql); ?>
+            </div>
+        <?php endif; ?>
+
         <!-- Estatísticas Gerais -->
         <div class="stats-grid">
             <div class="stat-card">
                 <i class="fas fa-link fa-2x text-primary"></i>
-                <div class="stat-number"><?php echo count($mapped_lectures); ?></div>
+                <div class="stat-number"><?php echo is_array($mapped_lectures) ? count($mapped_lectures) : 0; ?></div>
                 <div class="stat-label">Palestras Mapeadas</div>
             </div>
             <div class="stat-card">
