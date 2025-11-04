@@ -108,6 +108,23 @@ include __DIR__ . '/../vision/includes/sidebar.php';
                 </div>
             </a>
         </div>
+        
+        <hr>
+        <h2><i class="fas fa-cog"></i> Configurações</h2>
+        <div class="quick-actions-grid">
+            <a href="palestras_agendadas.php" class="quick-action-card">
+                <div class="card-info">
+                    <div class="quick-action-icon quick-action-icon-blue"><i class="fas fa-calendar-alt"></i></div>
+                    <div class="card-content"><h3>Palestras Agendadas</h3><p>Gerenciar anúncios de próximas palestras</p></div>
+                </div>
+            </a>
+            <a href="glossarios.php" class="quick-action-card">
+                <div class="card-info">
+                    <div class="quick-action-icon quick-action-icon-teal"><i class="fas fa-book"></i></div>
+                    <div class="card-content"><h3>Glossários</h3><p>Gerenciar glossários especializados</p></div>
+                </div>
+            </a>
+        </div>
     </div>
 </div>
 
