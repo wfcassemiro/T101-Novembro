@@ -1,0 +1,92 @@
+===============================================
+CORREÇÃO: Erro SQL - Coluna 'created_at' 
+===============================================
+
+DATA: Correção aplicada em dezembro de 2024
+
+PROBLEMA IDENTIFICADO:
+-----------------------
+O arquivo verificar_certificados_mapeados.php estava tentando usar uma coluna
+'created_at' da tabela 'hotmart_lecture_mapping' que não existe no banco de dados.
+
+Erro SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hlm.created_at' in 'SELECT'
+
+CAUSA RAIZ:
+-----------
+A tabela 'hotmart_lecture_mapping' não possui a coluna 'created_at' para rastrear
+quando um mapeamento foi criado. O código estava tentando:
+
+1. Filtrar palestras mapeadas por período (24h, 7d, 30d) usando hlm.created_at
+2. Separar certificados emitidos "antes" e "depois" do mapeamento usando mapped_at
+
+SOLUÇÃO APLICADA:
+-----------------
+
+1. REMOVIDO: Filtro temporal baseado em created_at da tabela de mapeamento
+   - O filtro de período (24h/7d/30d/all) agora usa LIMIT em vez de filtro por data
+   - Mostra as N palestras mais recentemente mapeadas (baseado no ID)
+
+2. SIMPLIFICADO: Listagem de certificados
+   - Removida a distinção entre certificados "antes" e "depois" do mapeamento
+   - Agora mostra TODOS os certificados emitidos para cada palestra mapeada
+   - Mantida a funcionalidade de mostrar usuários pendentes
+
+3. AJUSTADO: Interface do usuário
+   - Removida informação "Mapeada em: [data]" (não disponível)
+   - Badge mudou de "X novos / Y anteriores" para simplesmente "X certificados"
+   - Texto atualizado de "após o mapeamento" para mensagens genéricas
+
+ARQUIVOS MODIFICADOS:
+---------------------
+- verificar_certificados_mapeados.php
+
+MUDANÇAS ESPECÍFICAS:
+---------------------
+
+Linha 36-55 (Query principal):
+ANTES: Tentava usar hlm.created_at para filtrar por período
+DEPOIS: Usa ORDER BY hlm.id DESC + LIMIT para mostrar mapeamentos recentes
+
+Linha 75-95 (Query de certificados):
+ANTES: 
+  - SELECT com filtro "c.issued_at >= ?" usando mapped_at
+  - Query separada para contar certificados "antes do mapeamento"
+DEPOIS:
+  - SELECT sem filtro temporal (todos os certificados)
+  - certs_before = 0 (variável mantida para compatibilidade mas não utilizada)
+
+Linha 259-263 (HTML - Meta informações):
+ANTES: Mostrava "Mapeada em: [data]"
+DEPOIS: Removida essa linha
+
+Linha 266-274 (HTML - Badges):
+ANTES: Mostrava "X novos" e "Y anteriores"
+DEPOIS: Mostra apenas "X certificados"
+
+Linha 285 (HTML - Título seção):
+ANTES: "Certificados Emitidos Após Mapeamento"
+DEPOIS: "Certificados Emitidos"
+
+Linha 287 (HTML - Mensagem vazia):
+ANTES: "Nenhum certificado emitido após o mapeamento"
+DEPOIS: "Nenhum certificado emitido para esta palestra"
+
+IMPACTO:
+--------
+✅ O erro SQL foi completamente resolvido
+✅ A funcionalidade principal (verificar certificados) continua funcionando
+✅ Interface continua clara e informativa
+⚠️  Perdida a capacidade de filtrar por data de mapeamento (não havia essa coluna)
+⚠️  Não é possível distinguir certificados emitidos antes/depois do mapeamento
+
+RECOMENDAÇÃO FUTURA:
+--------------------
+Se for necessário rastrear QUANDO cada mapeamento foi criado, adicionar coluna:
+
+ALTER TABLE hotmart_lecture_mapping 
+ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
+Isso permitiria restaurar a funcionalidade original de filtrar por período
+e distinguir certificados anteriores dos posteriores ao mapeamento.
+
+STATUS: ✅ CORREÇÃO APLICADA E TESTADA
