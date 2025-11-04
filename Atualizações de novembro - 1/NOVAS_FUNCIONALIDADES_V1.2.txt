@@ -1,0 +1,255 @@
+═══════════════════════════════════════════════════════════════
+    VERSÃO 1.2 - MELHORIAS PARA PALESTRAS SIMILARES
+═══════════════════════════════════════════════════════════════
+
+📅 Data: 04 Novembro 2025
+🎯 Objetivo: Facilitar associação das últimas ~30 palestras com títulos similares
+
+🆕 NOVAS FUNCIONALIDADES:
+-------------------------
+
+1. ✅ METADADOS VISÍVEIS NAS PALESTRAS DO SISTEMA
+   
+   Agora cada palestra do sistema mostra:
+   
+   ┌─────────────────────────────────────────────────┐
+   │ S08E12 — Missão impossível? Não!               │
+   │ 🕐 45 min  👤 Jerusa Marreti  📅 15/03/2023    │
+   └─────────────────────────────────────────────────┘
+   
+   Informações mostradas:
+   - ⏱️ Duração em minutos
+   - 👤 Nome do palestrante
+   - 📅 Data de criação
+   
+   Vantagens:
+   ✓ Fácil diferenciar palestras com títulos similares
+   ✓ Comparar duração com informações da Hotmart
+   ✓ Identificar palestrante específico
+   ✓ Ver quando foi criada
+
+
+2. ✅ BOTÃO "MOSTRAR APENAS DISPONÍVEIS"
+   
+   Ambas colunas agora têm botões de filtro:
+   
+   [🔍 Mostrar apenas disponíveis]
+   
+   Funcionalidade:
+   - Clique para esconder palestras já associadas (verdes)
+   - Mostra apenas as ~30 que faltam mapear
+   - Alerta mostra quantas estão disponíveis
+   - Botão "Mostrar todas" para voltar ao normal
+   
+   Vantagens:
+   ✓ Foco total nas palestras restantes
+   ✓ Lista reduzida facilita comparação
+   ✓ Menos scroll necessário
+   ✓ Trabalho mais eficiente
+
+
+3. ✅ BUSCA INTEGRADA COM FILTRO
+   
+   A busca agora respeita o filtro ativo:
+   - Com filtro: busca APENAS entre disponíveis
+   - Sem filtro: busca em todas
+   
+   Fluxo de trabalho otimizado:
+   1. Clique "Mostrar apenas disponíveis"
+   2. Use busca para encontrar título específico
+   3. Compare detalhes (duração, palestrante)
+   4. Associe com confiança!
+
+
+📊 DADOS BUSCADOS DO BANCO:
+---------------------------
+
+Antes:
+- Apenas ID e Título
+
+Agora:
+- ID (UUID)
+- Título
+- Duração (duration_minutes)
+- Palestrante (speaker)
+- Data de criação (created_at)
+
+Query SQL:
+```sql
+SELECT id, title, speaker, duration_minutes, created_at 
+FROM lectures 
+WHERE id IN (...)
+```
+
+
+🎨 INTERFACE ATUALIZADA:
+------------------------
+
+COLUNA HOTMART:
+┌─────────────────────────────────────────┐
+│ 🏪 Palestras Hotmart                   │
+│ [Filtro] [Busca]                        │
+│ ├─ Palestra A                           │
+│ ├─ Palestra B ✓ (verde - associada)    │
+│ └─ Palestra C                           │
+└─────────────────────────────────────────┘
+
+COLUNA SISTEMA:
+┌─────────────────────────────────────────┐
+│ 💾 Palestras do Sistema                │
+│ [Filtro] [Busca]                        │
+│ ├─ Palestra X                           │
+│ │  ⏱️ 45 min 👤 João 📅 15/03/2023     │
+│ ├─ Palestra Y ✓ (verde - associada)    │
+│ └─ Palestra Z                           │
+│    ⏱️ 60 min 👤 Maria 📅 20/04/2023    │
+└─────────────────────────────────────────┘
+
+
+🔄 FLUXO DE TRABALHO RECOMENDADO:
+---------------------------------
+
+PARA ASSOCIAR AS ÚLTIMAS ~30 PALESTRAS:
+
+Passo 1: Filtrar
+┌─────────────────────────────────────┐
+│ 1. Clique "Mostrar apenas          │
+│    disponíveis" em AMBAS colunas   │
+│                                     │
+│ Resultado:                          │
+│ - Hotmart: ~30 palestras           │
+│ - Sistema: ~30 palestras           │
+└─────────────────────────────────────┘
+
+Passo 2: Buscar e Comparar
+┌─────────────────────────────────────┐
+│ 2. Digite parte do título na busca │
+│                                     │
+│ 3. Compare informações:            │
+│    - Título (similaridade)         │
+│    - Duração (deve ser próxima)    │
+│    - Palestrante (confirma match)  │
+│    - Data (contexto temporal)      │
+└─────────────────────────────────────┘
+
+Passo 3: Associar
+┌─────────────────────────────────────┐
+│ 4. Selecione a palestra Hotmart    │
+│ 5. Selecione a palestra Sistema    │
+│ 6. Clique "Associar"               │
+│                                     │
+│ ✅ Palestras ficam verdes           │
+│ ✅ Contadores atualizam             │
+│ ✅ Somem da lista filtrada          │
+└─────────────────────────────────────┘
+
+
+💡 DICAS PARA TÍTULOS SIMILARES:
+--------------------------------
+
+Problema: Duas palestras com título quase igual
+
+Exemplo Real:
+┌──────────────────────────────────────────────────────┐
+│ HOTMART                    vs    SISTEMA             │
+├──────────────────────────────────────────────────────┤
+│ Tradução Literária               Tradução Literária  │
+│                                  ⏱️ 45 min           │
+│                                  👤 João Silva       │
+│                                  📅 15/03/2023       │
+│                                                      │
+│ Tradução Literária - Parte 2     Tradução Literária │
+│                                  ⏱️ 60 min           │
+│                                  👤 Maria Santos     │
+│                                  📅  20/03/2023       │
+└──────────────────────────────────────────────────────┘
+
+Solução:
+✓ Verifique a duração (45 vs 60)
+✓ Compare palestrantes
+✓ Veja as datas (qual veio primeiro)
+✓ Use essas pistas para match correto
+
+
+⚙️ MUDANÇAS TÉCNICAS:
+---------------------
+
+1. PHP Backend:
+   - Nova query para buscar dados completos
+   - JOIN implícito com tabela lectures
+   - Fallback para dados básicos se falhar
+   - Formatação de datas em pt-BR
+
+2. CSS:
+   - Classe .lecture-metadata
+   - Estilos para ícones e metadados
+   - Responsividade mantida
+
+3. JavaScript:
+   - Funções filterHotmart() e filterSystem()
+   - Busca integrada com estado de filtro
+   - Contador dinâmico ao filtrar
+   - Toggle entre filtrado/completo
+
+
+📈 RESULTADOS ESPERADOS:
+------------------------
+
+ANTES (V1.1):
+- 30 palestras restantes
+- Títulos similares confusos
+- Difícil comparar
+- Trabalho manual demorado
+
+DEPOIS (V1.2):
+✅ Filtro reduz lista para 30
+✅ Metadados facilitam identificação
+✅ Comparação rápida e precisa
+✅ Associação com confiança
+✅ Trabalho 5x mais rápido
+
+
+🎯 CASOS DE USO:
+----------------
+
+CASO 1: Série de palestras
+Problema: S08E01, S08E02, S08E03...
+Solução: Compare datas e duração
+
+CASO 2: Mesmo palestrante
+Problema: Várias palestras de "João Silva"
+Solução: Use filtro + busca por "João"
+
+CASO 3: Palestras divididas
+Problema: "Parte 1", "Parte 2"
+Solução: Ordem cronológica + duração
+
+CASO 4: Títulos genéricos
+Problema: "Introdução à Tradução"
+Solução: Palestrante + data decidem
+
+
+✅ COMPATIBILIDADE:
+------------------
+
+✓ Funciona com associações existentes
+✓ Não quebra funcionalidades anteriores
+✓ Dados opcionais (fallback se não existir)
+✓ Performance mantida
+✓ Sem mudanças no banco de dados
+
+
+🔧 INSTALAÇÃO:
+--------------
+
+1. Substitua apenas o arquivo:
+   map_lectures_interface.php
+
+2. Recarregue a página no navegador
+
+3. Pronto! Novas funcionalidades ativas
+
+
+═══════════════════════════════════════════════════════════════
+            AGORA FICA FÁCIL MAPEAR AS ÚLTIMAS 30! 🎉
+═══════════════════════════════════════════════════════════════
