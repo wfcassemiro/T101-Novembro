@@ -2,6 +2,83 @@
               CHANGELOG - SISTEMA DE MAPEAMENTO
 ═══════════════════════════════════════════════════════════════
 
+📅 VERSÃO 1.6 - Associação Manual de Palestras ✨ SUPER FEATURE
+Data: Dezembro 2025
+
+🆕 FUNCIONALIDADES PRINCIPAIS:
+------------------------------
+
+🎯 ADICIONAR PALESTRAS HOTMART MANUALMENTE (2 FORMAS)
+
+1. ✅ OPÇÃO 1 - ADICIONAR À LISTA:
+   - Campo de entrada na coluna Hotmart
+   - Digite o título e clique em "Adicionar"
+   - Palestra aparece no topo da lista com badge "MANUAL"
+   - Pode então selecionar e associar normalmente
+   - Ideal para múltiplas associações
+
+2. ✅ OPÇÃO 2 - ASSOCIAÇÃO RÁPIDA:
+   - Botão "Associação Manual Rápida" (amarelo)
+   - Abre modal com formulário completo
+   - Preenche título Hotmart + seleciona palestra do sistema
+   - Cria associação em uma única etapa
+   - Ideal para casos pontuais
+
+🎨 ELEMENTOS VISUAIS ADICIONADOS:
+--------------------------------
+- Campo azul destacado para entrada manual
+- Botão amarelo "⚡ Associação Manual Rápida"
+- Modal elegante com gradiente roxo
+- Badge laranja "MANUAL" em palestras adicionadas
+- Destaque amarelo temporário ao adicionar
+- Ícones Font Awesome para melhor UX
+
+💻 VALIDAÇÕES IMPLEMENTADAS:
+----------------------------
+✅ Não permite título vazio
+✅ Não permite duplicatas (já existentes)
+✅ Verifica se palestra já foi mapeada
+✅ Dropdown só mostra palestras disponíveis
+✅ Feedback visual em todas as ações
+✅ Mensagens de erro/sucesso claras
+
+🔄 FLUXO DE TRABALHO:
+--------------------
+
+OPÇÃO 1 (Adicionar à Lista):
+1. Digite título da palestra Hotmart
+2. Clique em "Adicionar"
+3. Palestra aparece no topo com badge "MANUAL"
+4. Selecione a palestra (como qualquer outra)
+5. Selecione palestra do sistema
+6. Clique em "Associar Selecionadas"
+
+OPÇÃO 2 (Rápida):
+1. Clique em "Associação Manual Rápida"
+2. Digite título Hotmart no modal
+3. Selecione palestra do sistema no dropdown
+4. Clique em "Criar Associação"
+5. Pronto! Associação criada
+
+📚 DOCUMENTAÇÃO:
+---------------
+- MANUAL_ASSOCIACAO_MANUAL.md (Guia completo)
+- Comparação entre as duas opções
+- Cenários de uso
+- Dicas e boas práticas
+- Resolução de problemas
+
+🎯 BENEFÍCIOS:
+-------------
+✅ Flexibilidade total - qualquer palestra pode ser mapeada
+✅ Duas formas de uso (visual vs rápida)
+✅ Não depende mais da lista pré-carregada
+✅ Suporta casos especiais
+✅ Interface intuitiva
+✅ Feedback em tempo real
+
+═══════════════════════════════════════════════════════════════
+
 📅 VERSÃO 1.5 - Verificador de Certificados ✨ NOVA FERRAMENTA
 Data: Dezembro 2025
 
