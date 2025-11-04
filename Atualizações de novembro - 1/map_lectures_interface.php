@@ -295,8 +295,20 @@ $available_lectures = count($system_lectures) - count($mapped_lecture_ids);
                     .then(result => {
                         if (result.success) {
                             showAlert('Associação deletada com sucesso!', 'success');
-                            document.querySelector(`[data-mapping-id="${mappingId}"]`).remove();
+                            const mappingElement = document.querySelector(`[data-mapping-id="${mappingId}"]`);
+                            
+                            // Pegar os dados antes de remover
+                            const hotmartTitle = mappingElement.querySelector('.mapping-title').textContent.replace('🏪 ', '').trim();
+                            const lectureTitle = mappingElement.querySelector('.mapping-subtitle').textContent.replace('⬇️ ', '').trim();
+                            
+                            // Remover da lista
+                            mappingElement.remove();
+                            
+                            // Desmarcar as palestras como disponíveis novamente
+                            unmarkAsAssociated(hotmartTitle, lectureTitle);
+                            
                             updateMappedCount();
+                            updateAvailableCounts();
                         } else {
                             showAlert('Erro ao deletar: ' + result.message, 'danger');
                         }
