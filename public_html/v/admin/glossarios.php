@@ -147,41 +147,42 @@ include __DIR__ . '/../vision/includes/sidebar.php';
 <style>
 /* ============================================
    FORMULÁRIOS ESTILO APPLE VISION - INLINE
+   Versão com !important para sobrescrever
    ============================================ */
 
 .vision-form {
-    width: 100%;
+    width: 100% !important;
 }
 
 .form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
 }
 
 .form-group-wide {
-    grid-column: span 2;
+    grid-column: span 2 !important;
 }
 
 .form-group label {
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    color: #fff !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
 }
 
 .form-group label i {
-    color: #FFD700;
-    font-size: 0.9rem;
+    color: #FFD700 !important;
+    font-size: 0.9rem !important;
 }
 
 .form-group input[type="text"],
@@ -190,15 +191,15 @@ include __DIR__ . '/../vision/includes/sidebar.php';
 .form-group input[type="number"],
 .form-group select,
 .form-group textarea {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.05);
-    color: #fff;
-    font-size: 0.95rem;
-    font-family: 'Inter', sans-serif;
-    transition: all 0.3s ease;
+    width: 100% !important;
+    padding: 0.75rem 1rem !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: #fff !important;
+    font-size: 0.95rem !important;
+    font-family: 'Inter', sans-serif !important;
+    transition: all 0.3s ease !important;
 }
 
 .form-group input[type="text"]:focus,
@@ -207,81 +208,85 @@ include __DIR__ . '/../vision/includes/sidebar.php';
 .form-group input[type="number"]:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    outline: none;
-    border-color: #7B61FF;
-    background: rgba(123, 97, 255, 0.1);
-    box-shadow: 0 0 0 3px rgba(123, 97, 255, 0.2);
+    outline: none !important;
+    border-color: #7B61FF !important;
+    background: rgba(123, 97, 255, 0.1) !important;
+    box-shadow: 0 0 0 3px rgba(123, 97, 255, 0.2) !important;
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.4) !important;
 }
 
 .form-group select {
-    cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23FFD700' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    padding-right: 2.5rem;
+    cursor: pointer !important;
+    appearance: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23FFD700' d='M6 9L1 4h10z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 1rem center !important;
+    padding-right: 2.5rem !important;
 }
 
 .form-group select option {
-    background: #1a1a1a;
-    color: #fff;
-    padding: 0.5rem;
+    background: #1a1a1a !important;
+    color: #fff !important;
+    padding: 0.5rem !important;
 }
 
 .form-group textarea {
-    resize: vertical;
-    min-height: 100px;
-    line-height: 1.6;
+    resize: vertical !important;
+    min-height: 100px !important;
+    line-height: 1.6 !important;
 }
 
 .form-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: flex-start;
-    margin-top: 1.5rem;
+    display: flex !important;
+    gap: 1rem !important;
+    justify-content: flex-start !important;
+    margin-top: 1.5rem !important;
 }
 
-.form-actions .cta-btn {
-    padding: 0.85rem 2rem;
-    border-radius: 8px;
-    border: none;
-    background: linear-gradient(135deg, #7B61FF, #483D8B);
-    color: #fff;
-    font-weight: 600;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+.form-actions .cta-btn,
+.form-actions button.cta-btn {
+    padding: 0.85rem 2rem !important;
+    border-radius: 8px !important;
+    border: none !important;
+    background: linear-gradient(135deg, #7B61FF, #483D8B) !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
 }
 
-.form-actions .cta-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(123, 97, 255, 0.4);
+.form-actions .cta-btn:hover,
+.form-actions button.cta-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(123, 97, 255, 0.4) !important;
 }
 
-.form-actions .cta-btn:active {
-    transform: translateY(0);
+.form-actions .cta-btn:active,
+.form-actions button.cta-btn:active {
+    transform: translateY(0) !important;
 }
 
-.form-actions .cta-btn i {
-    font-size: 0.9rem;
+.form-actions .cta-btn i,
+.form-actions button.cta-btn i {
+    font-size: 0.9rem !important;
 }
 
 /* Responsividade do formulário */
 @media (max-width: 768px) {
     .form-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
     
     .form-group-wide {
-        grid-column: span 1;
+        grid-column: span 1 !important;
     }
 }
 
@@ -289,30 +294,30 @@ include __DIR__ . '/../vision/includes/sidebar.php';
 .form-group input:invalid:not(:focus):not(:placeholder-shown),
 .form-group select:invalid:not(:focus),
 .form-group textarea:invalid:not(:focus):not(:placeholder-shown) {
-    border-color: rgba(244, 67, 54, 0.5);
+    border-color: rgba(244, 67, 54, 0.5) !important;
 }
 
 .form-group input:valid:not(:focus):not(:placeholder-shown),
 .form-group select:valid:not(:focus),
 .form-group textarea:valid:not(:focus):not(:placeholder-shown) {
-    border-color: rgba(76, 175, 80, 0.5);
+    border-color: rgba(76, 175, 80, 0.5) !important;
 }
 
 /* Estilo para inputs desabilitados */
 .form-group input:disabled,
 .form-group select:disabled,
 .form-group textarea:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    background: rgba(255, 255, 255, 0.02);
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+    background: rgba(255, 255, 255, 0.02) !important;
 }
 
 /* Checkbox e Radio customizados */
 .form-group input[type="checkbox"],
 .form-group input[type="radio"] {
-    width: auto;
-    cursor: pointer;
-    accent-color: #7B61FF;
+    width: auto !important;
+    cursor: pointer !important;
+    accent-color: #7B61FF !important;
 }
 </style>
 
