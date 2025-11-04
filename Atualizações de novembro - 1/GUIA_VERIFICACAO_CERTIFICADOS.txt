@@ -1,0 +1,285 @@
+═══════════════════════════════════════════════════════════════
+      GUIA DE VERIFICAÇÃO DE CERTIFICADOS MAPEADOS
+═══════════════════════════════════════════════════════════════
+
+📅 Data: 04 Novembro 2025
+🎯 Objetivo: Verificar certificados emitidos após mapeamento de palestras
+
+📋 O QUE É ESTA FERRAMENTA:
+---------------------------
+
+Esta página permite verificar se os certificados foram corretamente 
+emitidos para usuários que assistiram palestras que foram RECENTEMENTE 
+mapeadas entre Hotmart e o sistema interno.
+
+
+🔍 O QUE A FERRAMENTA MOSTRA:
+------------------------------
+
+### 1. ESTATÍSTICAS GERAIS
+
+┌─────────────────────────────────────────────────┐
+│  [📊]           [✅]            [👥]            │
+│   50            120             85              │
+│ Palestras    Certificados    Usuários          │
+│ Mapeadas     Emitidos      Certificados        │
+└─────────────────────────────────────────────────┘
+
+
+### 2. PARA CADA PALESTRA MAPEADA:
+
+┌─────────────────────────────────────────────────┐
+│ 📚 Título da Palestra                           │
+│ Hotmart: Nome na Hotmart                        │
+│ Palestrante: João Silva | Duração: 45 min      │
+│ Mapeada em: 04/11/2025 10:30                   │
+│                                                 │
+│ ✅ 5 novos  ℹ️ 10 anteriores  ⚠️ 3 pendentes   │
+├─────────────────────────────────────────────────┤
+│ CERTIFICADOS EMITIDOS │ USUÁRIOS SEM CERTIFICADO│
+│                       │                         │
+│ ✅ Maria Silva        │ ⏳ Pedro Santos         │
+│    maria@email.com    │    pedro@email.com      │
+│    04/11/2025 15:00   │    Visto: 03/11 18:00   │
+│                       │    Tempo: 42 min        │
+└─────────────────────────────────────────────────┘
+
+
+### 3. BADGES EXPLICADOS:
+
+✅ X novos      = Certificados emitidos APÓS o mapeamento
+ℹ️ X anteriores = Certificados que já existiam ANTES
+⚠️ X pendentes  = Usuários que assistiram mas não têm certificado
+
+
+🎯 COMO USAR:
+-------------
+
+### PASSO 1: Escolher Período
+Clique em um dos botões no topo:
+- [Últimas 24 horas] → Mapeamentos de hoje
+- [Últimos 7 dias]   → Mapeamentos desta semana
+- [Últimos 30 dias]  → Mapeamentos deste mês
+- [Todos]            → Todos os mapeamentos
+
+
+### PASSO 2: Analisar Estatísticas
+Veja os números gerais:
+- Quantas palestras foram mapeadas?
+- Quantos certificados foram emitidos?
+- Quantos usuários receberam certificados?
+
+
+### PASSO 3: Verificar Cada Palestra
+Para cada palestra mapeada, verifique:
+
+✅ CERTIFICADOS EMITIDOS (Coluna Esquerda):
+- Lista de usuários que receberam certificado
+- Data e hora da emissão
+- Email do usuário
+- Código do certificado
+
+⚠️ USUÁRIOS SEM CERTIFICADO (Coluna Direita):
+- Lista de usuários que assistiram mas não têm certificado
+- Última visualização
+- Tempo total assistido
+
+
+📊 INTERPRETANDO OS RESULTADOS:
+-------------------------------
+
+### CENÁRIO 1: Tudo OK ✅
+```
+✅ 5 novos  ℹ️ 10 anteriores  
+Coluna direita: "Todos os usuários já receberam certificado!"
+```
+→ PERFEITO! O sistema emitiu certificados para todos.
+
+
+### CENÁRIO 2: Certificados Pendentes ⚠️
+```
+✅ 3 novos  ℹ️ 8 anteriores  ⚠️ 4 pendentes
+Coluna direita: Lista de 4 usuários sem certificado
+```
+→ AÇÃO NECESSÁRIA: 
+  - Verificar se estes usuários completaram a palestra
+  - Verificar tempo assistido (deve ser >= 80% da duração)
+  - Pode ser necessário emitir certificados manualmente
+
+
+### CENÁRIO 3: Nenhum Certificado Novo ❌
+```
+✅ 0 novos  ℹ️ 5 anteriores  ⚠️ 2 pendentes
+```
+→ INVESTIGAR:
+  - O mapeamento foi recente?
+  - Houve novos usuários assistindo após o mapeamento?
+  - Sistema de emissão automática está funcionando?
+
+
+🔍 CRITÉRIOS PARA EMISSÃO DE CERTIFICADO:
+-----------------------------------------
+
+Geralmente, um certificado é emitido quando:
+1. Usuário assiste >= 80% da palestra
+2. Palestra está mapeada no sistema
+3. Sistema detecta conclusão via access_logs
+4. Certificado é gerado automaticamente
+
+
+⚠️ USUÁRIOS PENDENTES - POSSÍVEIS CAUSAS:
+-----------------------------------------
+
+Um usuário pode estar na lista de "pendentes" porque:
+
+1. NÃO COMPLETOU A PALESTRA
+   - Assistiu menos de 80% da duração
+   - Parou no meio
+   
+2. ASSISTIU ANTES DO MAPEAMENTO
+   - Viu a palestra quando ainda não estava mapeada
+   - Sistema não tinha referência para emitir certificado
+   
+3. PROBLEMA TÉCNICO
+   - Falha no sistema de emissão automática
+   - Dados de progresso não sincronizados
+   
+4. USUÁRIO INATIVO
+   - Conta desativada
+   - Não é mais assinante
+
+
+💡 AÇÕES RECOMENDADAS:
+----------------------
+
+### Se há muitos certificados pendentes:
+
+1. VERIFICAR TEMPO ASSISTIDO
+   ```
+   Se tempo assistido >= 80% da duração:
+   → Usuário deveria ter certificado
+   → Investigar problema técnico
+   ```
+
+2. VERIFICAR DATA DE VISUALIZAÇÃO
+   ```
+   Se última view < data do mapeamento:
+   → Usuário assistiu antes do mapeamento
+   → Certificado não foi emitido automaticamente
+   → Pode precisar emitir manualmente
+   ```
+
+3. VERIFICAR STATUS DO USUÁRIO
+   ```
+   Se usuário está inativo ou não é assinante:
+   → Normal não ter certificado
+   → Não precisa ação
+   ```
+
+
+📈 RELATÓRIO EXECUTIVO:
+-----------------------
+
+Use esta página para criar relatório:
+
+RESUMO SEMANAL:
+- Total de palestras mapeadas: X
+- Total de certificados emitidos: Y
+- Taxa de sucesso: Y/X = Z%
+- Usuários impactados: N
+
+ALERTAS:
+- X palestras com pendências
+- Y usuários sem certificado merecido
+- Z palestras sem nenhum certificado novo
+
+
+🔧 QUERIES SQL EXECUTADAS:
+---------------------------
+
+A ferramenta executa as seguintes queries:
+
+1. Buscar palestras mapeadas no período:
+```sql
+SELECT hlm.*, l.*
+FROM hotmart_lecture_mapping hlm
+LEFT JOIN lectures l ON l.id = hlm.lecture_id
+WHERE hlm.created_at >= [período]
+```
+
+2. Certificados emitidos APÓS o mapeamento:
+```sql
+SELECT c.*, u.*
+FROM certificates c
+LEFT JOIN users u ON u.id = c.user_id
+WHERE c.lecture_id = ?
+AND c.issued_at >= [data_mapeamento]
+```
+
+3. Certificados emitidos ANTES do mapeamento:
+```sql
+SELECT COUNT(*)
+FROM certificates
+WHERE lecture_id = ?
+AND issued_at < [data_mapeamento]
+```
+
+4. Usuários que assistiram mas não têm certificado:
+```sql
+SELECT DISTINCT al.user_id, u.*, 
+       SUM(al.accumulated_watch_time) as total_time
+FROM access_logs al
+LEFT JOIN users u ON u.id = al.user_id
+WHERE al.lecture_id = ?
+AND al.user_id NOT IN (
+    SELECT user_id FROM certificates WHERE lecture_id = ?
+)
+GROUP BY al.user_id
+HAVING total_time > 0
+```
+
+
+🎯 CASOS DE USO:
+----------------
+
+### USO 1: Verificação Diária
+Acesse diariamente com filtro "Últimas 24 horas"
+→ Monitore certificados do dia
+
+### USO 2: Relatório Semanal
+Toda segunda, acesse com "Últimos 7 dias"
+→ Gere relatório da semana passada
+
+### USO 3: Auditoria Completa
+Acesse com "Todos" após concluir todos os mapeamentos
+→ Verifique estado geral do sistema
+
+### USO 4: Investigação de Problema
+Se usuário reclama de não ter certificado:
+1. Busque a palestra específica
+2. Veja se está na lista de pendentes
+3. Verifique tempo assistido
+4. Tome ação apropriada
+
+
+🚀 INSTALAÇÃO:
+--------------
+
+1. Copie verificar_certificados_mapeados.php
+2. Cole em /public_html/v/admin/
+3. Acesse via URL:
+   https://seu-dominio.com/v/admin/verificar_certificados_mapeados.php
+
+
+═══════════════════════════════════════════════════════════════
+              FERRAMENTA PRONTA PARA USO! 🎉
+═══════════════════════════════════════════════════════════════
+
+Esta ferramenta permite:
+✅ Verificar certificados emitidos
+✅ Identificar usuários pendentes
+✅ Monitorar sucesso dos mapeamentos
+✅ Gerar relatórios executivos
+✅ Tomar ações corretivas
+
+BOA VERIFICAÇÃO! 📊
