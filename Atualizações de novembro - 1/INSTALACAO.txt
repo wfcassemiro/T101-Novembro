@@ -55,7 +55,8 @@
    - hotmart_page_id (varchar 100, nullable)
 
 4. ACESSAR O SISTEMA
-   URL: https://seu-dominio.com/v/admin/map_lectures_interface.php
+   URL Principal: https://seu-dominio.com/v/admin/map_lectures_interface.php
+   URL Verificador: https://seu-dominio.com/v/admin/verificar_certificados_mapeados.php ✨ NOVO
    
    ⚠️ IMPORTANTE: Você DEVE estar logado como administrador!
 
