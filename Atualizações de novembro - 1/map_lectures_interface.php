@@ -164,12 +164,34 @@ $available_lectures = count($system_lectures) - count($mapped_lecture_ids);
                 <div id="system-list">
                     <?php foreach ($system_lectures as $lecture): 
                         $is_mapped = in_array($lecture['id'], $mapped_lecture_ids);
+                        $duration = isset($lecture['duration_minutes']) ? $lecture['duration_minutes'] : null;
+                        $speaker = isset($lecture['speaker']) ? $lecture['speaker'] : null;
+                        $created = isset($lecture['created_at']) ? date('d/m/Y', strtotime($lecture['created_at'])) : null;
                     ?>
                         <div class="lecture-item <?php echo $is_mapped ? 'mapped' : ''; ?>" 
                              data-id="<?php echo htmlspecialchars($lecture['id']); ?>" 
                              data-title="<?php echo htmlspecialchars($lecture['title']); ?>"
                              data-mapped="<?php echo $is_mapped ? '1' : '0'; ?>">
-                            <?php echo htmlspecialchars($lecture['title']); ?>
+                            <div><?php echo htmlspecialchars($lecture['title']); ?></div>
+                            <?php if ($duration || $speaker || $created): ?>
+                                <div class="lecture-metadata">
+                                    <?php if ($duration): ?>
+                                        <span class="meta-item">
+                                            <i class="fas fa-clock"></i> <?php echo $duration; ?> min
+                                        </span>
+                                    <?php endif; ?>
+                                    <?php if ($speaker): ?>
+                                        <span class="meta-item">
+                                            <i class="fas fa-user"></i> <?php echo htmlspecialchars($speaker); ?>
+                                        </span>
+                                    <?php endif; ?>
+                                    <?php if ($created): ?>
+                                        <span class="meta-item">
+                                            <i class="fas fa-calendar"></i> <?php echo $created; ?>
+                                        </span>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     <?php endforeach; ?>
                 </div>
