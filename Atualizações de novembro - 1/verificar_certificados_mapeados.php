@@ -267,11 +267,11 @@ try {
                     </div>
 
                     <div class="row">
-                        <!-- Certificados Emitidos Após Mapeamento -->
+                        <!-- Certificados Emitidos -->
                         <div class="col-md-6">
                             <h5><i class="fas fa-check-circle text-success"></i> Certificados Emitidos</h5>
                             <?php if (empty($certs_after)): ?>
-                                <p class="text-muted">Nenhum certificado emitido após o mapeamento.</p>
+                                <p class="text-muted">Nenhum certificado emitido para esta palestra.</p>
                             <?php else: ?>
                                 <div class="user-list">
                                     <?php foreach ($certs_after as $cert): ?>
