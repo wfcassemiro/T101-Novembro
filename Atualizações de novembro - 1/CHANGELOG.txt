@@ -1,0 +1,147 @@
+═══════════════════════════════════════════════════════════════
+              CHANGELOG - SISTEMA DE MAPEAMENTO
+═══════════════════════════════════════════════════════════════
+
+📅 VERSÃO 1.1 - Melhorias Visuais e Contadores
+Data: 04 Novembro 2025
+
+🆕 NOVAS FUNCIONALIDADES:
+-------------------------
+
+1. ✅ MARCAÇÃO VISUAL DE PALESTRAS ASSOCIADAS
+   - Palestras já associadas aparecem com fundo VERDE
+   - Ícone de checkmark (✓) ao lado do título
+   - Opacidade reduzida para indicar indisponibilidade
+   - Cursor "not-allowed" quando passar o mouse
+
+2. ✅ BLOQUEIO DE SELEÇÃO DE PALESTRAS ASSOCIADAS
+   - Não é mais possível selecionar palestras já associadas
+   - Alerta visual quando tentar selecionar palestra mapeada
+   - Mensagem clara: "Esta palestra já foi associada!"
+
+3. ✅ CONTADORES INTELIGENTES
+   - ANTES: Mostrava apenas total (ex: "560 Palestras Hotmart")
+   - AGORA: Mostra disponíveis/total (ex: "450 / 560 Hotmart Disponíveis")
+   - Atualização automática em tempo real
+   - Três contadores:
+     * Hotmart Disponíveis: X / Total
+     * Sistema Disponíveis: X / Total
+     * Associações Criadas: Total
+
+4. ✅ ATUALIZAÇÃO DINÂMICA
+   - Ao criar associação: marca palestras em verde
+   - Ao deletar associação: desmarca palestras (voltam ao normal)
+   - Contadores atualizam automaticamente
+   - Interface sempre sincronizada com o estado real
+
+
+🎨 MELHORIAS VISUAIS:
+--------------------
+
+CSS Adicionado:
+- .lecture-item.mapped { 
+    background-color: #c8e6c9 (verde claro)
+    border-color: #4caf50 (verde)
+    cursor: not-allowed
+    opacity: 0.7
+  }
+- .lecture-item.mapped::after {
+    content: ' ✓'
+    color: #2e7d32 (verde escuro)
+  }
+
+
+💻 MUDANÇAS TÉCNICAS:
+--------------------
+
+PHP (Backend):
+1. Criados arrays $mapped_hotmart_titles e $mapped_lecture_ids
+2. Adicionadas variáveis $available_hotmart e $available_lectures
+3. Cada item da lista recebe data-mapped="0" ou "1"
+4. Classes CSS aplicadas dinamicamente no PHP
+
+JavaScript (Frontend):
+1. Validação antes de permitir seleção
+2. Função markAsAssociated() - marca palestras como associadas
+3. Função unmarkAsAssociated() - desmarca ao deletar
+4. Função updateAvailableCounts() - atualiza contadores
+5. Alertas de feedback quando tentar selecionar palestra mapeada
+
+
+🔄 FLUXO DE TRABALHO ATUALIZADO:
+-------------------------------
+
+CRIAR ASSOCIAÇÃO:
+1. Usuário seleciona palestra Hotmart (não mapeada)
+2. Usuário seleciona palestra Sistema (não mapeada)
+3. Clica em "Associar"
+4. ✅ Salva no banco de dados
+5. ✅ Marca ambas palestras com fundo verde
+6. ✅ Atualiza contador de disponíveis
+7. ✅ Atualiza contador de associações criadas
+
+DELETAR ASSOCIAÇÃO:
+1. Usuário clica no botão de deletar
+2. Confirma exclusão
+3. ✅ Remove do banco de dados
+4. ✅ Desmarca palestras (remove fundo verde)
+5. ✅ Atualiza contador de disponíveis
+6. ✅ Atualiza contador de associações criadas
+
+
+📊 ESTATÍSTICAS MELHORADAS:
+--------------------------
+
+Caixa 1 - Hotmart Disponíveis:
+┌─────────────────────┐
+│   450 / 560         │
+│ Hotmart Disponíveis │
+└─────────────────────┘
+
+Caixa 2 - Sistema Disponíveis:
+┌─────────────────────┐
+│   120 / 170         │
+│ Sistema Disponíveis │
+└─────────────────────┘
+
+Caixa 3 - Associações Criadas:
+┌─────────────────────┐
+│       110           │
+│ Associações Criadas │
+└─────────────────────┘
+
+
+🎯 BENEFÍCIOS:
+-------------
+
+✅ Evita duplicação de associações
+✅ Progresso visível em tempo real
+✅ Interface mais intuitiva
+✅ Facilita identificar o que falta mapear
+✅ Feedback visual imediato
+✅ Reduz erros do usuário
+
+
+🔧 COMPATIBILIDADE:
+------------------
+
+✅ Totalmente compatível com versão anterior
+✅ Mapeamentos existentes são carregados corretamente
+✅ Não requer mudanças no banco de dados
+✅ Funciona com qualquer quantidade de associações
+
+
+═══════════════════════════════════════════════════════════════
+
+📅 VERSÃO 1.0 - Release Inicial
+Data: 04 Novembro 2025
+
+✅ Interface de 3 colunas
+✅ Busca em tempo real
+✅ Salvamento no banco de dados
+✅ Validação de duplicatas
+✅ Exclusão de associações
+✅ 560 palestras Hotmart incorporadas
+✅ 170 palestras do sistema incorporadas
+
+═══════════════════════════════════════════════════════════════
