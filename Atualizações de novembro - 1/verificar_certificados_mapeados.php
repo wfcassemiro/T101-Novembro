@@ -31,21 +31,28 @@ $total_users_with_certificates = 0;
 $error_message = null;
 
 try {
-    // 1. Buscar palestras mapeadas no período
+    // 1. Buscar todas as palestras mapeadas (sem filtro de data, pois não temos created_at)
+    // Vamos ordenar por ID (últimas criadas primeiro)
     $sql = "
         SELECT 
             hlm.id as mapping_id,
             hlm.hotmart_title,
             hlm.lecture_id,
             hlm.lecture_title,
-            hlm.created_at as mapped_at,
             l.speaker,
-            l.duration_minutes
+            l.duration_minutes,
+            l.created_at as lecture_created_at
         FROM hotmart_lecture_mapping hlm
         LEFT JOIN lectures l ON l.id = hlm.lecture_id
-        WHERE 1=1 $timeframe_sql
-        ORDER BY hlm.created_at DESC
+        ORDER BY hlm.id DESC
     ";
+    
+    // Aplicar limite se não for 'all'
+    if ($selected_timeframe !== 'all') {
+        $limits = ['24h' => 10, '7d' => 50, '30d' => 200];
+        $limit = isset($limits[$selected_timeframe]) ? $limits[$selected_timeframe] : 50;
+        $sql .= " LIMIT $limit";
+    }
     
     $stmt = $pdo->query($sql);
     if ($stmt) {
