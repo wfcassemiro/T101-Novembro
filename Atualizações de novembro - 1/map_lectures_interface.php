@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/../../public_html/config/database.php';
+require_once __DIR__ . '/../config/database.php';
 
 // Verificação de autenticação
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
@@ -37,7 +37,7 @@ try {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         body { background-color: #f8f9fa; }
-        .main-container { max-width: 1800px; margin: 20px auto; }
+        .main-container { max-width: 1800px; margin: 20px auto; padding: 0 15px; }
         .header-section { background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         .mapping-container { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }
         .lecture-column { background: white; border-radius: 10px; padding: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); height: 70vh; overflow-y: auto; }
@@ -52,7 +52,7 @@ try {
         .stat-box.mapped { background-color: #e8f5e9; }
         .mapping-item { background: #fff3cd; padding: 10px; margin-bottom: 8px; border-radius: 5px; border-left: 4px solid #ffc107; display: flex; justify-content: space-between; align-items: start; }
         .mapping-content { flex: 1; }
-        .mapping-title { font-weight: 600; color: #333; margin-bottom: 5px; }
+        .mapping-title { font-weight: 600; color: #333; margin-bottom: 5px; font-size: 0.9em; }
         .mapping-subtitle { font-size: 0.85em; color: #666; }
         .btn-delete-mapping { padding: 2px 8px; font-size: 0.8em; }
         .column-title { font-weight: bold; color: #1976D2; margin-bottom: 15px; font-size: 1.1em; border-bottom: 2px solid #1976D2; padding-bottom: 8px; }
@@ -273,6 +273,11 @@ try {
 
         function addMappingToList(mappingId, data) {
             const mappingsList = document.getElementById('mappings-list');
+            
+            // Remove mensagem "Nenhuma associação" se existir
+            const emptyMessage = mappingsList.querySelector('.text-muted');
+            if (emptyMessage) emptyMessage.remove();
+            
             const mappingItem = document.createElement('div');
             mappingItem.className = 'mapping-item';
             mappingItem.dataset.mappingId = mappingId;
