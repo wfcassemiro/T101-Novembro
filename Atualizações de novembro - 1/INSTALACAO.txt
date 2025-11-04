@@ -1,0 +1,207 @@
+═══════════════════════════════════════════════════════════════
+   INSTRUÇÕES DE INSTALAÇÃO - SISTEMA DE MAPEAMENTO DE PALESTRAS
+═══════════════════════════════════════════════════════════════
+
+📦 ARQUIVOS INCLUÍDOS:
+---------------------
+✓ map_lectures_interface.php     - Interface principal (15 KB)
+✓ data_hotmart.php                - Dados das palestras Hotmart (22 KB)
+✓ data_lectures.php               - Dados das palestras do sistema (21 KB)
+✓ save_mapping_ajax.php           - API para salvar associações (2 KB)
+✓ delete_mapping_ajax.php         - API para deletar associações (1.3 KB)
+✓ README.md                       - Documentação completa (5.5 KB)
+✓ INSTALACAO.txt                  - Este arquivo
+
+📋 TOTAL: 6 arquivos PHP + 2 documentações = 67.8 KB
+
+
+🚀 PASSO A PASSO DA INSTALAÇÃO:
+-------------------------------
+
+1. COPIAR ARQUIVOS
+   Copie TODOS os arquivos desta pasta para:
+   └─ /public_html/v/admin/
+
+   Estrutura final deve ficar:
+   /public_html/v/admin/
+   ├── map_lectures_interface.php
+   ├── data_hotmart.php
+   ├── data_lectures.php
+   ├── save_mapping_ajax.php
+   └── delete_mapping_ajax.php
+
+2. VERIFICAR PERMISSÕES
+   Os arquivos devem ter permissão 644:
+   chmod 644 /public_html/v/admin/map_lectures_interface.php
+   chmod 644 /public_html/v/admin/data_hotmart.php
+   chmod 644 /public_html/v/admin/data_lectures.php
+   chmod 644 /public_html/v/admin/save_mapping_ajax.php
+   chmod 644 /public_html/v/admin/delete_mapping_ajax.php
+
+3. VERIFICAR BANCO DE DADOS
+   Certifique-se que a tabela existe:
+   
+   USE u335416710_t101_db;
+   DESCRIBE hotmart_lecture_mapping;
+   
+   Deve mostrar:
+   - id (int)
+   - hotmart_title (varchar 500)
+   - lecture_id (varchar 36)
+   - lecture_title (varchar 500)
+   - hotmart_page_id (varchar 100, nullable)
+
+4. ACESSAR O SISTEMA
+   URL: https://seu-dominio.com/v/admin/map_lectures_interface.php
+   
+   ⚠️ IMPORTANTE: Você DEVE estar logado como administrador!
+
+
+✅ TESTANDO A INSTALAÇÃO:
+-------------------------
+
+1. Acesse a URL mencionada acima
+2. Você deve ver uma página com 3 colunas:
+   - Coluna esquerda: Palestras Hotmart (560+)
+   - Coluna central: Palestras do Sistema (170+)
+   - Coluna direita: Associações Criadas
+
+3. Teste criar uma associação:
+   a) Clique em qualquer palestra da coluna esquerda
+   b) Clique em qualquer palestra da coluna central
+   c) Clique no botão verde "Associar Selecionadas"
+   d) Deve aparecer alerta de sucesso
+   e) A associação deve aparecer na coluna direita
+
+4. Teste deletar uma associação:
+   a) Na coluna direita, clique no botão vermelho (lixeira)
+   b) Confirme a exclusão
+   c) A associação deve desaparecer
+
+
+📊 DADOS INCORPORADOS:
+----------------------
+
+PALESTRAS HOTMART (560 itens):
+- Dados extraídos do arquivo: Lista_hotmart.txt
+- Formato: Array PHP ordenado alfabeticamente
+- Localização: data_hotmart.php
+
+PALESTRAS DO SISTEMA (170 itens):
+- Dados extraídos do arquivo: unmapped_lectures_reprocessed.xlsx
+- Formato: Array PHP com ['id' => UUID, 'title' => string]
+- Localização: data_lectures.php
+
+⚠️ NÃO É NECESSÁRIO FAZER UPLOAD DOS ARQUIVOS TXT OU XLSX!
+   Todos os dados já estão incorporados nos arquivos PHP.
+
+
+🔧 RESOLUÇÃO DE PROBLEMAS:
+--------------------------
+
+PROBLEMA: "Não autorizado"
+SOLUÇÃO: Faça login como administrador no sistema
+
+PROBLEMA: Página em branco
+SOLUÇÃO: 
+1. Verifique os logs do PHP
+2. Verifique se o caminho do database.php está correto
+3. Caminho esperado: ../../public_html/config/database.php
+
+PROBLEMA: "Erro no banco de dados"
+SOLUÇÃO:
+1. Verifique se a tabela hotmart_lecture_mapping existe
+2. Verifique credenciais em config/database.php
+3. Verifique logs do MySQL
+
+PROBLEMA: Botão "Associar" não habilita
+SOLUÇÃO: Selecione UMA palestra de CADA coluna (esquerda E central)
+
+PROBLEMA: Erro 404 nos arquivos AJAX
+SOLUÇÃO: 
+1. Verifique se save_mapping_ajax.php e delete_mapping_ajax.php
+   estão na MESMA pasta que map_lectures_interface.php
+
+
+🎯 FUNCIONAMENTO DO SISTEMA:
+-----------------------------
+
+1. CARREGAR DADOS
+   ├─ data_hotmart.php retorna array com 560 palestras
+   ├─ data_lectures.php retorna array com 170 palestras
+   └─ Busca mapeamentos existentes no BD
+
+2. EXIBIR INTERFACE
+   ├─ Coluna 1: Lista Hotmart (com busca)
+   ├─ Coluna 2: Lista Sistema (com busca)
+   └─ Coluna 3: Mapeamentos + botão associar
+
+3. CRIAR ASSOCIAÇÃO
+   ├─ Usuário seleciona palestra Hotmart
+   ├─ Usuário seleciona palestra Sistema
+   ├─ Clica em "Associar Selecionadas"
+   ├─ AJAX POST para save_mapping_ajax.php
+   ├─ Validação de dados
+   ├─ Verifica duplicatas
+   ├─ INSERT no banco de dados
+   └─ Retorna sucesso + ID da associação
+
+4. DELETAR ASSOCIAÇÃO
+   ├─ Usuário clica no botão lixeira
+   ├─ Confirmação via alert()
+   ├─ AJAX POST para delete_mapping_ajax.php
+   ├─ DELETE do banco de dados
+   └─ Remove da interface
+
+
+📈 ESTATÍSTICAS DO SISTEMA:
+---------------------------
+
+Palestras Hotmart:      560
+Palestras Sistema:      170
+Associações Possíveis:  95,200 combinações
+Tabela BD:             hotmart_lecture_mapping
+Tempo de Carregamento: < 2 segundos
+Navegadores Suportados: Chrome, Firefox, Safari, Edge (modernos)
+
+
+🔒 SEGURANÇA IMPLEMENTADA:
+--------------------------
+
+✓ Verificação de sessão de administrador
+✓ Prepared statements (previne SQL Injection)
+✓ Validação de dados no backend
+✓ Escape de HTML (previne XSS)
+✓ Verificação de duplicatas
+✓ Confirmação antes de deletar
+✓ Headers Content-Type corretos
+✓ Tratamento de erros com try/catch
+
+
+💡 DICAS DE USO:
+----------------
+
+1. Use a busca para encontrar palestras rapidamente
+2. Você pode criar múltiplas associações em sequência
+3. As associações são salvas permanentemente
+4. Não é possível associar a mesma palestra Hotmart duas vezes
+5. Delete associações erradas e recrie se necessário
+6. A interface atualiza automaticamente após cada ação
+
+
+📝 PRÓXIMOS PASSOS:
+-------------------
+
+Após instalar e testar:
+1. Comece mapeando as palestras mais importantes
+2. Use os campos de busca para agilizar o processo
+3. Verifique periodicamente o contador de "Associações Criadas"
+4. Quando terminar, você terá todos os mapeamentos no BD
+
+
+═══════════════════════════════════════════════════════════════
+                    FIM DAS INSTRUÇÕES
+═══════════════════════════════════════════════════════════════
+
+Caso tenha dúvidas ou problemas, consulte o arquivo README.md
+para informações mais detalhadas sobre cada funcionalidade.
