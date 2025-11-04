@@ -290,7 +290,16 @@ $available_lectures = count($system_lectures) - count($mapped_lecture_ids);
             const searchTerm = this.value.toLowerCase();
             document.querySelectorAll('#hotmart-list .lecture-item').forEach(item => {
                 const title = item.dataset.title.toLowerCase();
-                item.style.display = title.includes(searchTerm) ? 'block' : 'none';
+                const matchesSearch = title.includes(searchTerm);
+                const isFiltered = document.getElementById('filterHotmart').style.display === 'none';
+                
+                if (isFiltered) {
+                    // Se está filtrando, só mostra se for disponível E combinar busca
+                    item.style.display = (item.dataset.mapped === '0' && matchesSearch) ? 'block' : 'none';
+                } else {
+                    // Se não está filtrando, mostra tudo que combinar busca
+                    item.style.display = matchesSearch ? 'block' : 'none';
+                }
             });
         });
 
@@ -298,8 +307,57 @@ $available_lectures = count($system_lectures) - count($mapped_lecture_ids);
             const searchTerm = this.value.toLowerCase();
             document.querySelectorAll('#system-list .lecture-item').forEach(item => {
                 const title = item.dataset.title.toLowerCase();
-                item.style.display = title.includes(searchTerm) ? 'block' : 'none';
+                const matchesSearch = title.includes(searchTerm);
+                const isFiltered = document.getElementById('filterSystem').style.display === 'none';
+                
+                if (isFiltered) {
+                    // Se está filtrando, só mostra se for disponível E combinar busca
+                    item.style.display = (item.dataset.mapped === '0' && matchesSearch) ? 'block' : 'none';
+                } else {
+                    // Se não está filtrando, mostra tudo que combinar busca
+                    item.style.display = matchesSearch ? 'block' : 'none';
+                }
             });
+        });
+
+        // Filtro: Mostrar apenas disponíveis - Hotmart
+        document.getElementById('filterHotmart').addEventListener('click', function() {
+            document.querySelectorAll('#hotmart-list .lecture-item').forEach(item => {
+                item.style.display = item.dataset.mapped === '0' ? 'block' : 'none';
+            });
+            this.style.display = 'none';
+            document.getElementById('showAllHotmart').style.display = 'inline-block';
+            document.getElementById('searchHotmart').value = '';
+            showAlert('Mostrando apenas palestras Hotmart disponíveis (' + 
+                document.querySelectorAll('#hotmart-list .lecture-item:not(.mapped)').length + ')', 'info');
+        });
+
+        document.getElementById('showAllHotmart').addEventListener('click', function() {
+            document.querySelectorAll('#hotmart-list .lecture-item').forEach(item => {
+                item.style.display = 'block';
+            });
+            this.style.display = 'none';
+            document.getElementById('filterHotmart').style.display = 'inline-block';
+        });
+
+        // Filtro: Mostrar apenas disponíveis - Sistema
+        document.getElementById('filterSystem').addEventListener('click', function() {
+            document.querySelectorAll('#system-list .lecture-item').forEach(item => {
+                item.style.display = item.dataset.mapped === '0' ? 'block' : 'none';
+            });
+            this.style.display = 'none';
+            document.getElementById('showAllSystem').style.display = 'inline-block';
+            document.getElementById('searchSystem').value = '';
+            showAlert('Mostrando apenas palestras do Sistema disponíveis (' + 
+                document.querySelectorAll('#system-list .lecture-item:not(.mapped)').length + ')', 'info');
+        });
+
+        document.getElementById('showAllSystem').addEventListener('click', function() {
+            document.querySelectorAll('#system-list .lecture-item').forEach(item => {
+                item.style.display = 'block';
+            });
+            this.style.display = 'none';
+            document.getElementById('filterSystem').style.display = 'inline-block';
         });
 
         // Associar
