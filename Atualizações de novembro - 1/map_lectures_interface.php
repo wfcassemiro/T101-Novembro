@@ -128,10 +128,13 @@ $available_lectures = count($system_lectures) - count($mapped_lecture_ids);
                 </div>
                 <input type="text" class="form-control search-box" id="searchSystem" placeholder="🔍 Buscar palestra do sistema...">
                 <div id="system-list">
-                    <?php foreach ($system_lectures as $lecture): ?>
-                        <div class="lecture-item" 
+                    <?php foreach ($system_lectures as $lecture): 
+                        $is_mapped = in_array($lecture['id'], $mapped_lecture_ids);
+                    ?>
+                        <div class="lecture-item <?php echo $is_mapped ? 'mapped' : ''; ?>" 
                              data-id="<?php echo htmlspecialchars($lecture['id']); ?>" 
-                             data-title="<?php echo htmlspecialchars($lecture['title']); ?>">
+                             data-title="<?php echo htmlspecialchars($lecture['title']); ?>"
+                             data-mapped="<?php echo $is_mapped ? '1' : '0'; ?>">
                             <?php echo htmlspecialchars($lecture['title']); ?>
                         </div>
                     <?php endforeach; ?>
