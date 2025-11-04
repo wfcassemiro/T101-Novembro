@@ -1,0 +1,152 @@
+═══════════════════════════════════════════════════════════════
+            CORREÇÃO APLICADA - PROBLEMA RESOLVIDO
+═══════════════════════════════════════════════════════════════
+
+🔧 PROBLEMA IDENTIFICADO:
+-------------------------
+O erro mostrava o código PHP completo ao invés de executá-lo.
+Isso aconteceu porque o caminho do arquivo database.php estava INCORRETO.
+
+❌ CAMINHO ERRADO (antigo):
+   require_once __DIR__ . '/../../public_html/config/database.php';
+
+✅ CAMINHO CORRETO (novo):
+   require_once __DIR__ . '/../config/database.php';
+
+
+📝 ARQUIVOS CORRIGIDOS:
+----------------------
+✅ save_mapping_ajax.php      - Corrigido caminho do database.php
+✅ delete_mapping_ajax.php    - Corrigido caminho do database.php
+✅ map_lectures_interface.php - Corrigido caminho do database.php
+
+
+🆕 ARQUIVO NOVO ADICIONADO:
+--------------------------
+✅ test_connection.php - Arquivo de diagnóstico para testar instalação
+
+
+📋 PASSOS PARA APLICAR A CORREÇÃO:
+----------------------------------
+
+1. SUBSTITUA OS ARQUIVOS
+   Copie os 3 arquivos corrigidos desta pasta para:
+   /public_html/v/admin/
+   
+   Arquivos a copiar:
+   - map_lectures_interface.php (substituir o antigo)
+   - save_mapping_ajax.php (substituir o antigo)
+   - delete_mapping_ajax.php (substituir o antigo)
+
+2. COPIE O ARQUIVO DE TESTE
+   Copie também:
+   - test_connection.php
+   
+   Para: /public_html/v/admin/
+
+3. TESTE A INSTALAÇÃO
+   Acesse no navegador:
+   https://seu-dominio.com/v/admin/test_connection.php
+   
+   Este arquivo irá verificar:
+   ✓ Se a sessão está ativa
+   ✓ Se o banco de dados está conectado
+   ✓ Se a tabela existe
+   ✓ Se os arquivos de dados estão presentes
+   ✓ Quantos mapeamentos já existem
+
+4. USE O SISTEMA
+   Se todos os testes passarem, acesse:
+   https://seu-dominio.com/v/admin/map_lectures_interface.php
+   
+   Agora deve funcionar perfeitamente!
+
+
+🎯 O QUE FOI CORRIGIDO:
+-----------------------
+
+ANTES (com erro):
+├── Caminho errado para database.php
+├── Mostrava código PHP no navegador
+└── Não executava os scripts
+
+DEPOIS (funcionando):
+├── Caminho correto para database.php
+├── PHP é executado normalmente
+└── AJAX funciona perfeitamente
+
+
+💡 POR QUE ISSO ACONTECEU:
+--------------------------
+
+A estrutura de pastas do sistema é:
+/public_html/
+├── v/
+│   ├── admin/           <- Onde os arquivos devem estar
+│   └── config/          <- Onde está database.php
+└── config/              <- Outro config (não é este!)
+
+O caminho correto parte de /admin/ e sobe um nível (../) 
+para chegar em /v/, e então acessa /config/
+
+
+🔍 COMO VERIFICAR SE ESTÁ FUNCIONANDO:
+--------------------------------------
+
+1. Acesse a interface de mapeamento
+2. Selecione uma palestra da Hotmart (coluna esquerda)
+3. Selecione uma palestra do Sistema (coluna central)
+4. Clique no botão verde "Associar Selecionadas"
+5. Deve aparecer um alerta verde de sucesso
+6. A associação deve aparecer na coluna direita
+7. Você deve conseguir deletar a associação
+
+Se tudo funcionar, o problema está RESOLVIDO! ✅
+
+
+📊 ESTRUTURA FINAL DOS ARQUIVOS:
+--------------------------------
+
+/public_html/v/admin/
+├── map_lectures_interface.php  (corrigido)
+├── save_mapping_ajax.php       (corrigido)
+├── delete_mapping_ajax.php     (corrigido)
+├── test_connection.php         (novo)
+├── data_hotmart.php            (mantido)
+└── data_lectures.php           (mantido)
+
+
+⚠️ IMPORTANTE:
+--------------
+
+1. NÃO modifique o caminho do database.php novamente
+2. Todos os 3 arquivos principais DEVEM estar na mesma pasta
+3. Os arquivos de dados (data_*.php) também devem estar lá
+4. Certifique-se de que você está logado como admin
+
+
+🆘 SE AINDA HOUVER PROBLEMAS:
+-----------------------------
+
+1. Acesse test_connection.php para diagnóstico
+2. Verifique se você está logado como administrador
+3. Verifique se a tabela hotmart_lecture_mapping existe
+4. Verifique os logs de erro do PHP no servidor
+5. Verifique o console do navegador (F12) para erros JavaScript
+
+
+✅ TESTE RÁPIDO:
+----------------
+
+Execute este teste rápido:
+1. Abra: test_connection.php
+2. Todos os itens devem mostrar ✅
+3. Se algum mostrar ❌, siga as instruções mostradas
+
+
+═══════════════════════════════════════════════════════════════
+                    CORREÇÃO CONCLUÍDA!
+═══════════════════════════════════════════════════════════════
+
+A interface agora deve funcionar perfeitamente.
+Bom trabalho de mapeamento! 🎉
