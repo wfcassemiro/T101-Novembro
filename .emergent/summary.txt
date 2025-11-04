@@ -1,0 +1,92 @@
+<analysis>
+The AI engineer was tasked with creating a PHP-based manual lecture association page. Initially, the focus was on understanding the existing PHP codebase, analyzing provided SQL dumps, text, and Excel files, and then building a new interface to map Hotmart lectures to internal system lectures. Key user requests involved direct database saving, integrating data into the page, and deploying files to a specific directory. The AI engineer incrementally developed the mapping interface, addressing initial deployment issues related to PHP paths and variable initialization. Subsequent iterations focused on enhancing the user experience by visually marking associated lectures, updating counts, adding duration and date information, implementing filters, and displaying comprehensive details from both Hotmart and internal system lectures, including Hotmart IDs. The current state involves debugging a SQL error related to a missing  column in the  table, encountered while developing a certificate verification tool.
+</analysis>
+
+<product_requirements>
+The primary requirement is to create a PHP-based web page for manually associating lecture names from Hotmart with internal system lectures, enabling automatic certificate generation. This page should be placed in .
+Initial user requests included:
+1.  Incorporating data from  and  directly into the page, eliminating the need for file uploads.
+2.  Saving mapping associations directly into the database.
+3.  Delivering the final files in the  directory for deployment to .
+
+Subsequent feature enhancements requested:
+4.  Visually marking associated lectures (e.g., with a green background) and updating the count of unmapped items.
+5.  Adding duration and date information to lecture titles for better identification, along with a filter to show only available (unmapped) lectures.
+6.  Displaying all available data for Hotmart and internal lectures (category, level, tags, Hotmart IDs) to facilitate accurate matching.
+7.  Creating a separate tool/page () to check if certificates for users who watched recently mapped lectures were issued.
+</product_requirements>
+
+<key_technical_concepts>
+-   **PHP (Backend Logic & Frontend Rendering):** Used for server-side processing, database interaction (PDO), and generating HTML.
+-   **MySQL/MariaDB:** Database management system for storing lecture data and mappings.
+-   **HTML, CSS, JavaScript (AJAX):** Frontend technologies for the user interface and dynamic interactions.
+-   **Database Mapping:** Core functionality to link Hotmart lecture titles to internal system lecture IDs.
+-   **Session Management:** Used for authentication/authorization checks ().
+-   **File Inclusion ():** Managing dependencies for PHP files.
+-   **SQL Queries:** For retrieving, inserting, and updating data.
+</key_technical_concepts>
+
+<code_architecture>
+The application is a PHP-based web application. The core web root appears to be .
+
+**Directory Structure:**
+
+
+**Key Files and Changes:**
+
+-   :
+    -   **Importance:** Contains the database connection logic using PDO.
+    -   **Changes:** Not directly modified, but its correct path () was critical for other files to connect to the database.
+
+-   :
+    -   **Importance:** The main user interface for manual lecture mapping.
+    -   **Changes:**
+        -   Initial creation with two columns (Hotmart lectures, system lectures) for association.
+        -   Integrated  and  to display content.
+        -   Implemented AJAX calls to  and .
+        -   Enhanced to mark already mapped lectures in green and update counters.
+        -   Updated to display  and  for system lectures.
+        -   Added JavaScript for filtering available lectures.
+        -   Further extended to display comprehensive Hotmart data (page_id, page_name, hotmart_id) and system lecture data (category, level, tags).
+        -   Adjusted CSS for better visualization of new data.
+
+-   :
+    -   **Importance:** Stores the extracted Hotmart lecture titles.
+    -   **Changes:** Created to hold an array of Hotmart lecture titles extracted from .
+
+-   :
+    -   **Importance:** Stores the extracted system lecture data (ID, title).
+    -   **Changes:** Created to hold an array of system lecture data extracted from .
+
+-   :
+    -   **Importance:** Handles the backend logic for saving a Hotmart-system lecture mapping.
+    -   **Changes:**
+        -   Initial creation to receive , ,  via POST request.
+        -   Includes authentication/authorization checks.
+        -   Inserts new mappings into the  table.
+        -   Corrected  path to  from  to .
+
+-   :
+    -   **Importance:** Handles the backend logic for deleting a Hotmart-system lecture mapping.
+    -   **Changes:** Created to remove entries from the  table. Corrected  path.
+
+-   :
+    -   **Importance:** A tool to verify certificate issuance after mapping.
+    -   **Changes:**
+        -   Initial creation to fetch and display statistics on certificates.
+        -   Corrected  path.
+        -   Fixed  and  by initializing  before use and improving exception handling.
+        -   Currently undergoing a fix for  error.
+</code_architecture>
+
+<pending_tasks>
+-   Resolve the  error in  by removing the dependency on the non-existent  column in the  table.
+</pending_tasks>
+
+<current_work>
+The AI engineer is currently in the process of debugging and fixing an SQL error within the  file. This error, , indicates that the SQL query used in this PHP script is attempting to select a column named  from the  table, but this column does not exist in the database schema. The AI engineer has confirmed this by examining the provided SQL dump. The previous attempts involved fixing issues with uninitialized variables () and general exception handling in this file. The current task is to modify the SQL query and the associated PHP code to remove the reference to , likely by adjusting the  statement or using an alternative column that does exist to achieve the desired functionality for certificate verification.
+</current_work>
+
+<optional_next_step>
+The AI engineer will remove the dependency on the  column from  in .
+</optional_next_step>
