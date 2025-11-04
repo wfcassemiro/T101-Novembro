@@ -108,8 +108,13 @@ $available_lectures = count($system_lectures) - count($mapped_lecture_ids);
                 </div>
                 <input type="text" class="form-control search-box" id="searchHotmart" placeholder="🔍 Buscar palestra Hotmart...">
                 <div id="hotmart-list">
-                    <?php foreach ($hotmart_lectures as $index => $lecture): ?>
-                        <div class="lecture-item" data-title="<?php echo htmlspecialchars($lecture); ?>" data-index="<?php echo $index; ?>">
+                    <?php foreach ($hotmart_lectures as $index => $lecture): 
+                        $is_mapped = in_array($lecture, $mapped_hotmart_titles);
+                    ?>
+                        <div class="lecture-item <?php echo $is_mapped ? 'mapped' : ''; ?>" 
+                             data-title="<?php echo htmlspecialchars($lecture); ?>" 
+                             data-index="<?php echo $index; ?>"
+                             data-mapped="<?php echo $is_mapped ? '1' : '0'; ?>">
                             <?php echo htmlspecialchars($lecture); ?>
                         </div>
                     <?php endforeach; ?>
